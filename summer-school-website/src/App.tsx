@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const carouselItems = [
   {
     icon: "💻",
@@ -67,7 +69,7 @@ const programs = [
     age: "Ages 8–14",
     color: "bg-[#E30613]",
     icon: "🎮",
-    image: "/images/hero-kids.png",
+    image: "/images/fotoja.png",
     description:
       "Students design simple games while learning creativity, teamwork, problem solving, and presentation skills.",
     bullets: ["Mini games", "Story design", "Presentations"],
@@ -157,18 +159,21 @@ function Navbar() {
           >
             About
           </a>
+
           <a
             href="#programs"
             className="text-sm font-semibold text-slate-600 hover:text-[#009FE3]"
           >
             Programs
           </a>
+
           <a
             href="#schedule"
             className="text-sm font-semibold text-slate-600 hover:text-[#009FE3]"
           >
             Schedule
           </a>
+
           <a
             href="https://wa.me/38344000000"
             target="_blank"
@@ -177,6 +182,7 @@ function Navbar() {
           >
             WhatsApp
           </a>
+
           <a
             href="#register"
             className="rounded-full bg-[#009FE3] px-5 py-2.5 text-sm font-black text-white shadow-md transition hover:bg-[#0087c2]"
@@ -249,6 +255,7 @@ function Hero() {
             >
               Register Your Child
             </a>
+
             <a
               href="https://wa.me/38344000000"
               target="_blank"
@@ -257,6 +264,7 @@ function Hero() {
             >
               Write on WhatsApp
             </a>
+
             <a
               href="#programs"
               className="rounded-full border-2 border-[#009FE3] bg-white px-8 py-4 text-center font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white"
@@ -276,7 +284,7 @@ function Hero() {
           <div className="image-card-shadow relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl">
             <div className="relative overflow-hidden rounded-[1.5rem]">
               <img
-                src="/images/stem-camp.png"
+                src="/images/hero-kids.png"
                 alt="Kids learning coding and STEM"
                 className="h-[450px] w-full object-cover"
               />
@@ -334,6 +342,7 @@ function TechCarousel() {
               >
                 {item.icon}
               </div>
+
               <p className="text-xl font-black">{item.title}</p>
             </div>
           ))}
@@ -344,6 +353,57 @@ function TechCarousel() {
 }
 
 function DiscountCountdown() {
+  const discountEndDate = new Date("2026-06-01T23:59:59").getTime();
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+
+  useEffect(() => {
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = discountEndDate - now;
+
+      if (distance <= 0) {
+        setTimeLeft({
+          days: "00",
+          hours: "00",
+          minutes: "00",
+          seconds: "00",
+        });
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) / (1000 * 60)
+      );
+
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTimeLeft({
+        days: String(days).padStart(2, "0"),
+        hours: String(hours).padStart(2, "0"),
+        minutes: String(minutes).padStart(2, "0"),
+        seconds: String(seconds).padStart(2, "0"),
+      });
+    }
+
+    updateCountdown();
+
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+  }, [discountEndDate]);
+
   return (
     <section className="bg-[#1F2933] px-6 py-8 text-white">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
@@ -357,15 +417,31 @@ function DiscountCountdown() {
           </h2>
 
           <p className="mt-1 text-white/70">
-            Register before the deadline and secure your child’s spot.
+            Register before June 1st and secure your child’s spot.
           </p>
         </div>
 
         <div className="grid grid-cols-4 gap-3 text-center">
-          <CountdownBox number="09" label="Days" color="bg-[#009FE3]" />
-          <CountdownBox number="14" label="Hours" color="bg-[#78BE20]" />
-          <CountdownBox number="32" label="Min" color="bg-[#F6C400]" />
-          <CountdownBox number="18" label="Sec" color="bg-[#E30613]" />
+          <CountdownBox
+            number={timeLeft.days}
+            label="Days"
+            color="bg-[#009FE3]"
+          />
+          <CountdownBox
+            number={timeLeft.hours}
+            label="Hours"
+            color="bg-[#78BE20]"
+          />
+          <CountdownBox
+            number={timeLeft.minutes}
+            label="Min"
+            color="bg-[#F6C400]"
+          />
+          <CountdownBox
+            number={timeLeft.seconds}
+            label="Sec"
+            color="bg-[#E30613]"
+          />
         </div>
 
         <a
@@ -395,6 +471,7 @@ function CountdownBox({
       >
         {number}
       </div>
+
       <p className="mt-2 text-xs font-black uppercase text-white/60">{label}</p>
     </div>
   );
@@ -433,6 +510,7 @@ function MiniCard({
       >
         {icon}
       </div>
+
       <p className="mt-3 font-black text-slate-800">{title}</p>
     </div>
   );
@@ -448,6 +526,7 @@ function About() {
           <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
             About us
           </p>
+
           <h2 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
             A fun place where children learn by doing.
           </h2>
@@ -583,11 +662,13 @@ function Schedule() {
               >
                 {index + 1}
               </div>
+
               <p className="font-black text-slate-800">{item.week}</p>
             </div>
 
             <div>
               <h3 className="text-2xl font-black">{item.title}</h3>
+
               <p className="mt-2 leading-7 text-slate-600">{item.text}</p>
             </div>
           </div>
@@ -765,6 +846,7 @@ function ContactCard({
       <p className="text-sm font-black uppercase tracking-wider text-slate-500">
         {title}
       </p>
+
       <p className="mt-2 text-xl font-black">{value}</p>
     </div>
   );
