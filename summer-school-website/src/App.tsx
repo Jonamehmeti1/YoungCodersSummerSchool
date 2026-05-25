@@ -231,13 +231,13 @@ function Navbar() {
           <div className="h-20 w-20">
             <img
               src="/images/logo.jpg"
-              alt="Young Coders Hub logo"
+              alt="Young Engineers Prishtina"
               className="h-full w-full object-contain"
             />
           </div>
 
           <div>
-            <p className="text-lg font-black leading-none">Young Coders Hub</p>
+            <p className="text-lg font-black leading-none">Young Engineers Prishtina</p>
             <p className="text-xs font-bold uppercase tracking-wider text-[#009FE3]">
               Summer School 2026
             </p>
@@ -720,11 +720,6 @@ function Programs() {
           <h2 className="mt-4 text-4xl font-black md:text-5xl">
             Zgjidh programin
           </h2>
-
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            Mund të zgjidhni programin mujor gjatë Korrikut ose kampin
-            tërëditor 6–17 Korrik.
-          </p>
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -847,10 +842,6 @@ function Activities() {
             Çka do të mësojnë fëmijët?
           </h2>
 
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            Fëmijët do të mësojnë dhe argëtohen përmes aktiviteteve të
-            ndryshme praktike dhe kreative.
-          </p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-4">
@@ -926,11 +917,6 @@ function Schedule() {
           <h2 className="mt-4 text-4xl font-black md:text-5xl">
             Orari dhe aktivitetet e Summer School
           </h2>
-
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            Fëmijët mund të ndjekin programin mujor gjatë Korrikut ose kampin
-            tërëditor me aktivitete të plota edukative dhe kreative.
-          </p>
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -1144,11 +1130,6 @@ function Gallery() {
           <h2 className="mt-4 text-4xl font-black md:text-5xl">
             Momente nga aktivitetet
           </h2>
-
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            Një pamje më e afërt e atmosferës, aktiviteteve kreative dhe
-            momenteve të bukura gjatë Summer School.
-          </p>
         </div>
 
         <div className="mt-12 overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white p-4 shadow-sm">
@@ -1305,11 +1286,6 @@ function WhyJoin() {
             <h2 className="mt-4 text-4xl font-black md:text-5xl">
               Më shumë se vetëm një aktivitet veror.
             </h2>
-
-            <p className="mt-5 text-lg leading-8 text-white/90">
-              Fëmijët mësojnë të mendojnë, të ndërtojnë, të bashkëpunojnë, të
-              komunikojnë dhe të krijojnë me vetëbesim.
-            </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -1417,7 +1393,7 @@ function Contact() {
           <div className="grid gap-4">
             <ContactCard
               title="Email"
-              value="info@youngcodershub.com"
+              value="yeprishtina@gmail.com"
               color="border-[#009FE3]"
             />
             <ContactCard
@@ -1482,7 +1458,7 @@ function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white px-6 py-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-        <p>© 2026 Young Coders Hub. All rights reserved.</p>
+        <p>© 2026 Young Engineers Prishtina. All rights reserved.</p>
 
         <div className="flex gap-2">
           <span className="h-3 w-3 rounded-full bg-[#009FE3]" />
