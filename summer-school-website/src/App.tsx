@@ -1,115 +1,205 @@
 import { useEffect, useState } from "react";
 
+const REGISTRATION_LINK = "https://forms.gle/QKKW1HJozTzwm1Xw9";
+const WHATSAPP_LINK = "https://wa.me/38344000000";
+const EARLY_BIRD_END_DATE = "2026-07-01T23:59:59";
+
+const heroAlbumImages = [
+  "/images/hero-kids.png",
+  "/images/coding-class.png",
+  "/images/stem-camp.png",
+  "/images/foto2.PNG",
+  "/images/foto3.PNG",
+  "/images/fotoja.png",
+  "/images/pic1.jpg",
+  "/images/pic2.jpg",
+  "/images/pic3.jpg",
+  "/images/pic4.jpg",
+];
+
 const carouselItems = [
   {
-    icon: "💻",
-    title: "Coding",
-    color: "bg-[#009FE3]",
-  },
-  {
-    icon: "🧩",
-    title: "STEM",
-    color: "bg-[#78BE20]",
-  },
-  {
     icon: "🤖",
-    title: "AI",
-    color: "bg-[#F6C400]",
-  },
-  {
-    icon: "🎮",
-    title: "Games",
-    color: "bg-[#E30613]",
+    title: "Robotikë",
+    color: "bg-[#009FE3]",
   },
   {
     icon: "⚙️",
-    title: "Engineering",
+    title: "Inxhinieri",
+    color: "bg-[#78BE20]",
+  },
+  {
+    icon: "💻",
+    title: "Kodim",
+    color: "bg-[#F6C400]",
+  },
+  {
+    icon: "🧠",
+    title: "AI",
+    color: "bg-[#E30613]",
+  },
+  {
+    icon: "🧪",
+    title: "Science",
     color: "bg-[#009FE3]",
+  },
+  {
+    icon: "🖨️",
+    title: "3D Print",
+    color: "bg-[#78BE20]",
+  },
+  {
+    icon: "🌿",
+    title: "Eksplorim",
+    color: "bg-[#F6C400]",
   },
   {
     icon: "🚀",
     title: "Projects",
-    color: "bg-[#78BE20]",
+    color: "bg-[#E30613]",
   },
 ];
 
-const programs = [
+const mainPrograms = [
   {
-    title: "Coding for Kids",
-    age: "Ages 7–12",
+    title: "Programi Mujor",
+    subtitle: "Gjatë gjithë muajit Korrik",
+    age: "Mosha 4–15 vjeç",
     color: "bg-[#009FE3]",
-    icon: "💻",
-    image: "/images/coding-class.png",
+    icon: "📚",
+    image: "/images/pic1.jpg",
     description:
-      "Students learn coding basics through games, animations, logic challenges, and creative digital projects.",
-    bullets: ["Logic games", "Animations", "Creative projects"],
+      "Program edukativ dhe argëtues gjatë gjithë muajit Korrik, nga e Hëna deri të Premten, me nga 2 orë aktivitete në ditë.",
+    details: [
+      "E Hënë – E Premte",
+      "2 orë në ditë",
+      "Gjatë gjithë muajit Korrik",
+      "Për moshat 4–15 vjeç",
+    ],
+    price: "79€",
+    discountPrice: "59€",
+    priceNote: "Me zbritje për regjistrimet e hershme",
   },
   {
-    title: "STEM & Engineering",
-    age: "Ages 6–12",
+    title: "Kampi Tërëditor",
+    subtitle: "6 Korrik – 17 Korrik",
+    age: "Mosha 4–15 vjeç",
     color: "bg-[#78BE20]",
-    icon: "🧩",
+    icon: "🏕️",
     image: "/images/stem-camp.png",
     description:
-      "Hands-on activities where students build, test, solve problems, and understand how technology works.",
-    bullets: ["Build & test", "Problem solving", "Team challenges"],
+      "Kamp tërëditor ku fëmijët përfshihen në aktivitete praktike, edukative dhe eksploruese prej mëngjesit deri pasdite.",
+    details: [
+      "6 Korrik – 17 Korrik",
+      "08:30 – 16:30",
+      "Robotikë, AI, Kodim, Science",
+      "Eksplorim i natyrës",
+    ],
+    price: "119€/javë",
+    discountPrice: "99€/javë",
+    priceNote: "Dy javë: 189€",
+  },
+];
+
+const activities = [
+  {
+    title: "Robotikë & Inxhinieri",
+    age: "Mosha 4–15",
+    color: "bg-[#009FE3]",
+    icon: "🤖",
+    image: "/images/foto3.PNG",
+    description:
+      "Fëmijët ndërtojnë, testojnë dhe mësojnë si funksionojnë robotët dhe sistemet inxhinierike.",
+    bullets: ["Build & test", "Team challenges", "Engineering thinking"],
   },
   {
-    title: "AI & Smart Tech",
-    age: "Ages 9–14",
+    title: "AI & Kodim",
+    age: "Mosha 4–15",
+    color: "bg-[#78BE20]",
+    icon: "💻",
+    image: "/images/pic3.jpg",
+    description:
+      "Nxënësit njihen me bazat e kodimit dhe inteligjencës artificiale përmes aktiviteteve praktike.",
+    bullets: ["Coding basics", "AI activities", "Creative logic"],
+  },
+  {
+    title: "Science Experiments",
+    age: "Mosha 4–15",
     color: "bg-[#F6C400]",
-    icon: "🤖",
+    icon: "🧪",
     image: "/images/foto2.PNG",
     description:
-      "A beginner-friendly introduction to artificial intelligence, prompts, smart tools, and digital safety.",
-    bullets: ["AI basics", "Prompting", "Digital safety"],
+      "Eksperimente shkencore që e bëjnë mësimin më argëtues, praktik dhe të kuptueshëm për fëmijët.",
+    bullets: ["Experiments", "Discovery", "Hands-on learning"],
   },
   {
-    title: "Game Design",
-    age: "Ages 8–14",
+    title: "3D Design & Print",
+    age: "Mosha 4–15",
     color: "bg-[#E30613]",
-    icon: "🎮",
-    image: "/images/fotoja.png",
+    icon: "🖨️",
+    image: "/images/foto3.PNG",
     description:
-      "Students design simple games while learning creativity, teamwork, problem solving, and presentation skills.",
-    bullets: ["Mini games", "Story design", "Presentations"],
+      "Fëmijët eksplorojnë dizajnin 3D dhe idenë se si modelet digjitale mund të kthehen në objekte reale.",
+    bullets: ["3D design", "Creative models", "Print concepts"],
   },
 ];
 
 const schedule = [
   {
-    week: "Week 1",
-    title: "Coding Basics",
-    text: "Commands, logic, sequencing, and beginner-friendly creative coding activities.",
+    week: "Programi Mujor",
+    title: "Gjatë gjithë Korrikut",
+    text: "E Hënë – E Premte, nga 2 orë në ditë. Programi përfshin robotikë, inxhinieri, AI, kodim, eksperimente shkencore, 3D design & print dhe aktivitete kreative.",
     color: "bg-[#009FE3]",
   },
   {
-    week: "Week 2",
-    title: "STEM Challenges",
-    text: "Hands-on problem solving, teamwork, building activities, and engineering thinking.",
+    week: "Kampi Tërëditor",
+    title: "6 Korrik – 17 Korrik",
+    text: "Çdo ditë nga ora 08:30 deri 16:30. Fëmijët përfshihen në aktivitete edukative, kreative dhe eksploruese, përfshirë edhe eksplorim të natyrës.",
     color: "bg-[#78BE20]",
   },
   {
-    week: "Week 3",
-    title: "AI & Games",
-    text: "Students explore AI tools, prompts, game ideas, and responsible technology.",
+    week: "Aktivitetet",
+    title: "Teknologji + kreativitet + argëtim",
+    text: "Robotikë & Inxhinieri, AI & Kodim, Science Experiments, 3D Design & Print, aktivitete kreative dhe eksploruese.",
     color: "bg-[#F6C400]",
   },
   {
-    week: "Week 4",
-    title: "Final Project",
-    text: "Students prepare a final project and present what they learned.",
+    week: "Regjistrimi",
+    title: "Early Bird Discount",
+    text: "Programi mujor: 79€ çmimi i rregullt, 59€ me zbritje. Kampi tërëditor: 119€/javë, 99€/javë me zbritje, ose 189€ për dy javë.",
     color: "bg-[#E30613]",
   },
 ];
 
 const benefits = [
-  "Hands-on learning",
-  "STEM activities",
-  "Coding projects",
-  "Creative challenges",
-  "Teamwork",
-  "Final certificate",
+  "Për moshat 4–15 vjeç",
+  "Mësim praktik dhe argëtues",
+  "Robotikë & Inxhinieri",
+  "AI & Kodim",
+  "Science Experiments",
+  "3D Design & Print",
+  "Aktivitete kreative",
+  "Eksplorim i natyrës",
+];
+
+const galleryImages = [
+  "/images/pic1.jpg",
+  "/images/pic2.jpg",
+  "/images/pic3.jpg",
+  "/images/pic4.jpg",
+  "/images/pic5.jpg",
+  "/images/pic6.jpg",
+  "/images/pic7.jpg",
+  "/images/pic8.jpg",
+  "/images/pic9.jpg",
+  "/images/pic10.jpg",
+  "/images/pic11.jpg",
+  "/images/pic12.jpg",
+  "/images/pic13.jpg",
+  "/images/pic14.jpg",
+  "/images/foto2.PNG",
+  "/images/foto3.PNG",
+  "/images/fotoja.png",
 ];
 
 function App() {
@@ -121,7 +211,9 @@ function App() {
       <DiscountCountdown />
       <About />
       <Programs />
+      <Activities />
       <Schedule />
+      <Gallery />
       <WhyJoin />
       <Register />
       <Contact />
@@ -136,18 +228,18 @@ function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-3">
-          <div className="relative grid h-12 w-12 place-items-center rounded-full bg-white shadow-md">
-            <span className="absolute left-2 top-2 h-3 w-3 rounded-full bg-[#009FE3]" />
-            <span className="absolute right-2 top-2 h-3 w-3 rounded-full bg-[#78BE20]" />
-            <span className="absolute bottom-2 left-2 h-3 w-3 rounded-full bg-[#F6C400]" />
-            <span className="absolute bottom-2 right-2 h-3 w-3 rounded-full bg-[#E30613]" />
-            <span className="gear-spin text-lg">⚙️</span>
+          <div className="h-20 w-20">
+            <img
+              src="/images/logo.jpg"
+              alt="Young Coders Hub logo"
+              className="h-full w-full object-contain"
+            />
           </div>
 
           <div>
             <p className="text-lg font-black leading-none">Young Coders Hub</p>
             <p className="text-xs font-bold uppercase tracking-wider text-[#009FE3]">
-              Smart Code Only
+              Summer School 2026
             </p>
           </div>
         </a>
@@ -175,7 +267,14 @@ function Navbar() {
           </a>
 
           <a
-            href="https://wa.me/38344000000"
+            href="#gallery"
+            className="text-sm font-semibold text-slate-600 hover:text-[#009FE3]"
+          >
+            Gallery
+          </a>
+
+          <a
+            href={WHATSAPP_LINK}
             target="_blank"
             rel="noreferrer"
             className="rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-black text-white shadow-md transition hover:bg-[#1db954]"
@@ -184,7 +283,9 @@ function Navbar() {
           </a>
 
           <a
-            href="#register"
+            href={REGISTRATION_LINK}
+            target="_blank"
+            rel="noreferrer"
             className="rounded-full bg-[#009FE3] px-5 py-2.5 text-sm font-black text-white shadow-md transition hover:bg-[#0087c2]"
           >
             Register Now
@@ -237,91 +338,139 @@ function Hero() {
           </div>
 
           <h1 className="max-w-3xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
-            Build your child’s{" "}
-            <span className="text-[#009FE3]">future</span> with coding, STEM &
-            creativity.
+            <span className="text-[#009FE3] drop-shadow-sm">Teknologji</span>,{" "}
+            <span className="text-[#78BE20] drop-shadow-sm">kreativitet</span>{" "}
+            dhe{" "}
+            <span className="text-[#F6C400] drop-shadow-sm">argëtim</span> për{" "}
+            <span className="text-[#1F2933]">fëmijë.</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-            A hands-on summer school where curious students learn coding,
-            engineering, AI, games, teamwork, and confidence through fun
-            practical projects.
+            Program veror për moshat 4–15 vjeç, ku fëmijët mësojnë dhe
+            argëtohen përmes Robotikës, Inxhinierisë, AI, Kodimit, Science
+            Experiments, 3D Design & Print dhe aktiviteteve eksploruese.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <a
-              href="#register"
+              href={REGISTRATION_LINK}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-[#E30613] px-8 py-4 text-center font-black text-white shadow-lg transition hover:bg-red-700"
             >
-              Register Your Child
+              Regjistrohu tani
             </a>
 
             <a
-              href="https://wa.me/38344000000"
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noreferrer"
               className="rounded-full bg-[#25D366] px-8 py-4 text-center font-black text-white shadow-lg transition hover:bg-[#1db954]"
             >
-              Write on WhatsApp
+              Shkruaj në WhatsApp
             </a>
 
             <a
               href="#programs"
               className="rounded-full border-2 border-[#009FE3] bg-white px-8 py-4 text-center font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white"
             >
-              View Programs
+              Shiko programet
             </a>
           </div>
 
           <div className="mt-10 grid max-w-lg grid-cols-3 gap-4">
-            <Stat number="4" label="Weeks" color="text-[#009FE3]" />
-            <Stat number="7–14" label="Ages" color="text-[#78BE20]" />
-            <Stat number="100%" label="Fun" color="text-[#E30613]" />
+            <Stat number="Korrik" label="Programi" color="text-[#009FE3]" />
+            <Stat number="4–15" label="Mosha" color="text-[#78BE20]" />
+            <Stat number="59€" label="Prej" color="text-[#E30613]" />
           </div>
         </div>
 
-        <div className="relative">
-          <div className="image-card-shadow relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl">
-            <div className="relative overflow-hidden rounded-[1.5rem]">
-              <img
-                src="/images/hero-kids.png"
-                alt="Kids learning coding and STEM"
-                className="h-[450px] w-full object-cover"
-              />
+        <HeroPhotoAlbum />
+      </div>
+    </section>
+  );
+}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+function HeroPhotoAlbum() {
+  const [currentImage, setCurrentImage] = useState(0);
 
-              <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-white/95 p-5 shadow-xl backdrop-blur">
-                <p className="text-sm font-black uppercase tracking-wider text-[#009FE3]">
-                  Summer School 2026
-                </p>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((previousImage) =>
+        previousImage === heroAlbumImages.length - 1 ? 0 : previousImage + 1
+      );
+    }, 3000);
 
-                <h2 className="mt-1 text-2xl font-black text-[#1F2933]">
-                  Build. Code. Create.
-                </h2>
+    return () => clearInterval(interval);
+  }, []);
 
-                <div className="mt-4 grid grid-cols-2 gap-3">
-                  <MiniCard icon="💻" title="Coding" color="bg-[#009FE3]" />
-                  <MiniCard icon="🧩" title="STEM" color="bg-[#78BE20]" />
-                </div>
-              </div>
+  return (
+    <div className="relative">
+      <div className="image-card-shadow relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl">
+        <div className="relative h-[520px] overflow-hidden rounded-[1.5rem] bg-slate-100">
+          {heroAlbumImages.map((image, index) => (
+            <img
+              key={image}
+              src={image}
+              alt={`Summer school activity ${index + 1}`}
+              className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ${
+                index === currentImage
+                  ? "scale-100 opacity-100"
+                  : "scale-105 opacity-0"
+              }`}
+            />
+          ))}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+
+          <div className="absolute left-5 top-5 rounded-full bg-white/95 px-5 py-2 text-sm font-black uppercase tracking-wider text-[#009FE3] shadow-lg backdrop-blur">
+            📸 Summer Album
+          </div>
+
+          <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-white/95 p-5 shadow-xl backdrop-blur">
+            <p className="text-sm font-black uppercase tracking-wider text-[#009FE3]">
+              Summer School 2026
+            </p>
+
+            <h2 className="mt-1 text-2xl font-black text-[#1F2933]">
+              Mëso. Krijo. Eksploro.
+            </h2>
+
+            <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">
+              Momente nga teknologjia, robotika, kodimi, eksperimentet dhe
+              aktivitetet kreative.
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {heroAlbumImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`h-3 rounded-full transition-all ${
+                    index === currentImage
+                      ? "w-8 bg-[#009FE3]"
+                      : "w-3 bg-slate-300"
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
             </div>
-          </div>
-
-          <div className="float-element absolute -right-4 -top-4 rounded-2xl bg-[#F6C400] px-5 py-3 font-black text-[#1F2933] shadow-xl">
-            New Camp!
-          </div>
-
-          <div className="float-element-slow absolute -left-6 top-20 rounded-full bg-[#78BE20] p-4 text-2xl shadow-xl">
-            ⚙️
-          </div>
-
-          <div className="float-element-fast absolute -right-4 bottom-24 rounded-full bg-[#E30613] p-4 text-2xl shadow-xl">
-            🚀
           </div>
         </div>
       </div>
-    </section>
+
+      <div className="float-element absolute -right-4 -top-4 rounded-2xl bg-[#F6C400] px-5 py-3 font-black text-[#1F2933] shadow-xl">
+        Early Bird!
+      </div>
+
+      <div className="float-element-slow absolute -left-6 top-20 rounded-full bg-[#78BE20] p-4 text-2xl shadow-xl">
+        ⚙️
+      </div>
+
+      <div className="float-element-fast absolute -right-4 bottom-24 rounded-full bg-[#E30613] p-4 text-2xl shadow-xl">
+        🚀
+      </div>
+    </div>
   );
 }
 
@@ -335,7 +484,7 @@ function TechCarousel() {
           {repeatedItems.map((item, index) => (
             <div
               key={`${item.title}-${index}`}
-              className="flex min-w-[210px] items-center gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-4 shadow-sm"
+              className="flex min-w-[220px] items-center gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-4 shadow-sm"
             >
               <div
                 className={`grid h-14 w-14 place-items-center rounded-2xl ${item.color} text-3xl`}
@@ -353,7 +502,7 @@ function TechCarousel() {
 }
 
 function DiscountCountdown() {
-  const discountEndDate = new Date("2026-06-01T23:59:59").getTime();
+  const discountEndDate = new Date(EARLY_BIRD_END_DATE).getTime();
 
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
@@ -413,23 +562,24 @@ function DiscountCountdown() {
           </div>
 
           <h2 className="mt-3 text-2xl font-black md:text-3xl">
-            30% discount for early registrations
+            Zbritje për regjistrimet e hershme
           </h2>
 
           <p className="mt-1 text-white/70">
-            Register before June 1st and secure your child’s spot.
+            Përfito zbritje deri në 25% për regjistrimet e hershme në programin mujor
+            dhe kampin tërëditor.
           </p>
         </div>
 
         <div className="grid grid-cols-4 gap-3 text-center">
           <CountdownBox
             number={timeLeft.days}
-            label="Days"
+            label="Ditë"
             color="bg-[#009FE3]"
           />
           <CountdownBox
             number={timeLeft.hours}
-            label="Hours"
+            label="Orë"
             color="bg-[#78BE20]"
           />
           <CountdownBox
@@ -439,16 +589,18 @@ function DiscountCountdown() {
           />
           <CountdownBox
             number={timeLeft.seconds}
-            label="Sec"
+            label="Sek"
             color="bg-[#E30613]"
           />
         </div>
 
         <a
-          href="#register"
+          href={REGISTRATION_LINK}
+          target="_blank"
+          rel="noreferrer"
           className="rounded-full bg-[#F6C400] px-8 py-4 font-black text-[#1F2933] shadow-lg transition hover:bg-yellow-300"
         >
-          Reserve Now
+          Rezervo tani
         </a>
       </div>
     </section>
@@ -528,19 +680,20 @@ function About() {
           </p>
 
           <h2 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
-            A fun place where children learn by doing.
+            Një program veror ku fëmijët mësojnë duke krijuar.
           </h2>
         </div>
 
         <div className="space-y-5 text-lg leading-8 text-slate-600">
           <p>
-            Young Coders Hub helps students explore coding, STEM, engineering,
-            games, and AI in a simple and exciting way.
+            Summer School është i dedikuar për fëmijët e moshave 4–15 vjeç dhe
+            kombinon teknologjinë, kreativitetin, eksperimentet dhe eksplorimin.
           </p>
 
           <p>
-            Our goal is to help children become creative thinkers, confident
-            problem-solvers, and smart digital citizens.
+            Qëllimi është që fëmijët të mësojnë përmes aktiviteteve praktike,
+            të zhvillojnë mendim kreativ, vetëbesim, logjikë dhe aftësi
+            bashkëpunimi.
           </p>
         </div>
       </div>
@@ -565,50 +718,176 @@ function Programs() {
           </p>
 
           <h2 className="mt-4 text-4xl font-black md:text-5xl">
-            Summer School Programs
+            Zgjidh programin
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            Each program is beginner-friendly, practical, and designed to make
-            learning exciting.
+            Mund të zgjidhni programin mujor gjatë Korrikut ose kampin
+            tërëditor 6–17 Korrik.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {mainPrograms.map((program) => (
+            <ProgramCard key={program.title} {...program} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProgramCard({
+  title,
+  subtitle,
+  age,
+  color,
+  icon,
+  image,
+  description,
+  details,
+  price,
+  discountPrice,
+  priceNote,
+}: {
+  title: string;
+  subtitle: string;
+  age: string;
+  color: string;
+  icon: string;
+  image: string;
+  description: string;
+  details: string[];
+  price: string;
+  discountPrice: string;
+  priceNote: string;
+}) {
+  return (
+    <div className="card-hover group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+      <div className={`h-3 ${color}`} />
+
+      <div className="h-72 overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+        />
+      </div>
+
+      <div className="p-7">
+        <div className="flex items-start justify-between gap-5">
+          <div>
+            <p className="text-sm font-black uppercase tracking-wider text-slate-500">
+              {subtitle}
+            </p>
+            <h3 className="mt-2 text-3xl font-black">{title}</h3>
+            <p className="mt-2 font-black text-[#009FE3]">{age}</p>
+          </div>
+
+          <div
+            className={`grid h-16 w-16 shrink-0 place-items-center rounded-3xl ${color} text-3xl`}
+          >
+            {icon}
+          </div>
+        </div>
+
+        <p className="mt-5 leading-8 text-slate-600">{description}</p>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          {details.map((detail) => (
+            <div
+              key={detail}
+              className="rounded-2xl bg-slate-50 px-4 py-3 text-sm font-bold text-slate-600"
+            >
+              ✅ {detail}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-7 rounded-3xl bg-slate-50 p-5">
+          <p className="text-sm font-black uppercase tracking-wider text-slate-500">
+            Çmimi
+          </p>
+
+          <div className="mt-2 flex flex-wrap items-end gap-3">
+            <p className="text-4xl font-black text-[#E30613]">
+              {discountPrice}
+            </p>
+            <p className="pb-1 text-lg font-bold text-slate-400 line-through">
+              {price}
+            </p>
+          </div>
+
+          <p className="mt-2 font-bold text-slate-600">{priceNote}</p>
+        </div>
+
+        <a
+          href={REGISTRATION_LINK}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-7 block rounded-full bg-[#009FE3] px-5 py-4 text-center text-sm font-black text-white transition hover:bg-[#0087c2]"
+        >
+          Regjistrohu për këtë program
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function Activities() {
+  return (
+    <section className="bg-white py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#78BE20]">
+            Activities
+          </p>
+
+          <h2 className="mt-4 text-4xl font-black md:text-5xl">
+            Çka do të mësojnë fëmijët?
+          </h2>
+
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            Fëmijët do të mësojnë dhe argëtohen përmes aktiviteteve të
+            ndryshme praktike dhe kreative.
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-4">
-          {programs.map((program) => (
+          {activities.map((activity) => (
             <div
-              key={program.title}
+              key={activity.title}
               className="card-hover group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
             >
-              <div className={`h-3 ${program.color}`} />
+              <div className={`h-3 ${activity.color}`} />
 
               <div className="h-44 overflow-hidden">
                 <img
-                  src={program.image}
-                  alt={program.title}
+                  src={activity.image}
+                  alt={activity.title}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
                 />
               </div>
 
               <div className="p-6">
                 <div
-                  className={`grid h-16 w-16 place-items-center rounded-3xl ${program.color} text-3xl`}
+                  className={`grid h-16 w-16 place-items-center rounded-3xl ${activity.color} text-3xl`}
                 >
-                  {program.icon}
+                  {activity.icon}
                 </div>
 
                 <p className="mt-6 text-sm font-black uppercase tracking-wider text-slate-500">
-                  {program.age}
+                  {activity.age}
                 </p>
 
-                <h3 className="mt-2 text-xl font-black">{program.title}</h3>
+                <h3 className="mt-2 text-xl font-black">{activity.title}</h3>
 
                 <p className="mt-4 leading-7 text-slate-600">
-                  {program.description}
+                  {activity.description}
                 </p>
 
                 <div className="mt-5 space-y-2">
-                  {program.bullets.map((bullet) => (
+                  {activity.bullets.map((bullet) => (
                     <div
                       key={bullet}
                       className="flex items-center gap-2 rounded-2xl bg-slate-50 px-3 py-2 text-sm font-bold text-slate-600"
@@ -618,13 +897,6 @@ function Programs() {
                     </div>
                   ))}
                 </div>
-
-                <a
-                  href="#register"
-                  className="mt-6 block rounded-full border-2 border-slate-200 px-5 py-3 text-center text-sm font-black transition hover:border-[#009FE3] hover:bg-[#009FE3] hover:text-white"
-                >
-                  Choose Program
-                </a>
               </div>
             </div>
           ))}
@@ -633,48 +905,386 @@ function Programs() {
     </section>
   );
 }
-
 function Schedule() {
   return (
     <section
       id="schedule"
-      className="engineering-grid mx-auto max-w-7xl px-6 py-20"
+      className="engineering-grid relative overflow-hidden px-6 py-20"
     >
-      <div className="max-w-2xl">
-        <p className="text-sm font-black uppercase tracking-[0.3em] text-[#78BE20]">
-          Schedule
-        </p>
-
-        <h2 className="mt-4 text-4xl font-black md:text-5xl">
-          A colorful 4-week learning journey
-        </h2>
+      <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-[#009FE3]/10 blur-3xl" />
+      <div className="absolute -right-20 bottom-20 h-72 w-72 rounded-full bg-[#F6C400]/20 blur-3xl" />
+      <div className="absolute right-1/3 top-20 hidden text-7xl opacity-10 md:block">
+        📅
       </div>
 
-      <div className="mt-12 grid gap-5">
-        {schedule.map((item, index) => (
-          <div
-            key={item.week}
-            className="card-hover grid gap-5 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[180px_1fr] md:items-center"
-          >
-            <div className="flex items-center gap-4">
-              <div
-                className={`grid h-14 w-14 place-items-center rounded-2xl ${item.color} font-black text-white`}
-              >
-                {index + 1}
-              </div>
+      <div className="relative mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#78BE20]">
+            Schedule
+          </p>
 
-              <p className="font-black text-slate-800">{item.week}</p>
-            </div>
+          <h2 className="mt-4 text-4xl font-black md:text-5xl">
+            Orari dhe aktivitetet e Summer School
+          </h2>
 
-            <div>
-              <h3 className="text-2xl font-black">{item.title}</h3>
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            Fëmijët mund të ndjekin programin mujor gjatë Korrikut ose kampin
+            tërëditor me aktivitete të plota edukative dhe kreative.
+          </p>
+        </div>
 
-              <p className="mt-2 leading-7 text-slate-600">{item.text}</p>
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-[2.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="grid gap-6">
+              <ScheduleOption
+                number="01"
+                icon="📚"
+                color="bg-[#009FE3]"
+                label="Programi Mujor"
+                title="Gjatë gjithë muajit Korrik"
+                description="Program i rregullt veror me aktivitete edukative dhe kreative çdo ditë pune."
+                details={[
+                  "E Hënë – E Premte",
+                  "2 orë në ditë",
+                  "Gjatë gjithë muajit Korrik",
+                  "Mosha 4–15 vjeç",
+                ]}
+              />
+
+              <ScheduleOption
+                number="02"
+                icon="🏕️"
+                color="bg-[#78BE20]"
+                label="Kampi Tërëditor"
+                title="6 Korrik – 17 Korrik"
+                description="Kamp ditor me aktivitete të plota nga mëngjesi deri pasdite, për fëmijë që duan eksperiencë më intensive."
+                details={[
+                  "08:30 – 16:30",
+                  "6 Korrik – 17 Korrik",
+                  "1 ose 2 javë",
+                  "Mosha 4–15 vjeç",
+                ]}
+              />
             </div>
           </div>
-        ))}
+
+          <div className="rounded-[2.5rem] border border-slate-200 bg-white p-7 shadow-sm">
+            <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
+              Aktivitetet
+            </p>
+
+            <h3 className="mt-3 text-2xl font-black">
+              Çka përfshihet në program?
+            </h3>
+
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Programi është i ndërtuar që fëmijët të mësojnë duke krijuar,
+              eksperimentuar dhe bashkëpunuar.
+            </p>
+
+            <div className="mt-6 grid gap-3">
+              <ActivityLine
+                icon="🤖"
+                text="Robotikë & Inxhinieri"
+                color="bg-[#009FE3]"
+              />
+              <ActivityLine
+                icon="💻"
+                text="AI & Kodim"
+                color="bg-[#78BE20]"
+              />
+              <ActivityLine
+                icon="🧪"
+                text="Science Experiments"
+                color="bg-[#F6C400]"
+              />
+              <ActivityLine
+                icon="🖨️"
+                text="3D Design & Print"
+                color="bg-[#E30613]"
+              />
+              <ActivityLine
+                icon="🌿"
+                text="Aktivitete kreative dhe eksploruese"
+                color="bg-[#009FE3]"
+              />
+              <ActivityLine
+                icon="👥"
+                text="Punë në grup dhe prezantime"
+                color="bg-[#78BE20]"
+              />
+            </div>
+
+            <a
+              href={REGISTRATION_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 block rounded-full bg-[#E30613] px-7 py-4 text-center font-black text-white transition hover:bg-red-700"
+            >
+              Regjistrohu tani
+            </a>
+          </div>
+        </div>
       </div>
     </section>
+  );
+}
+
+function ScheduleOption({
+  number,
+  icon,
+  color,
+  label,
+  title,
+  description,
+  details,
+}: {
+  number: string;
+  icon: string;
+  color: string;
+  label: string;
+  title: string;
+  description: string;
+  details: string[];
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-[2rem] bg-slate-50 p-6">
+      <div className="absolute right-6 top-6 text-7xl opacity-10">{icon}</div>
+
+      <div className="relative grid gap-6 md:grid-cols-[90px_1fr]">
+        <div
+          className={`grid h-20 w-20 place-items-center rounded-3xl ${color} text-2xl font-black text-white shadow-lg`}
+        >
+          {number}
+        </div>
+
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.25em] text-slate-500">
+            {label}
+          </p>
+
+          <h3 className="mt-2 text-3xl font-black">{title}</h3>
+
+          <p className="mt-3 text-lg leading-8 text-slate-600">
+            {description}
+          </p>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {details.map((detail) => (
+              <div
+                key={detail}
+                className="rounded-2xl bg-white px-4 py-3 text-sm font-bold text-slate-600 shadow-sm"
+              >
+                ✅ {detail}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ActivityLine({
+  icon,
+  text,
+  color,
+}: {
+  icon: string;
+  text: string;
+  color: string;
+}) {
+  return (
+    <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
+      <div
+        className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${color} text-2xl`}
+      >
+        {icon}
+      </div>
+      <p className="font-black text-slate-800">{text}</p>
+    </div>
+  );
+}
+function Gallery() {
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) =>
+        prev === galleryImages.length - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  function goToPreviousImage() {
+    setActiveImage((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
+  }
+
+  function goToNextImage() {
+    setActiveImage((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1
+    );
+  }
+
+  return (
+    <section id="gallery" className="relative overflow-hidden bg-slate-50 py-20">
+      <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-[#009FE3]/10 blur-3xl" />
+      <div className="absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-[#F6C400]/20 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
+            Gallery
+          </p>
+
+          <h2 className="mt-4 text-4xl font-black md:text-5xl">
+            Momente nga aktivitetet
+          </h2>
+
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            Një pamje më e afërt e atmosferës, aktiviteteve kreative dhe
+            momenteve të bukura gjatë Summer School.
+          </p>
+        </div>
+
+        <div className="mt-12 overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
+            <div className="relative overflow-hidden rounded-[2rem] bg-slate-100">
+              {galleryImages.map((image, index) => (
+                <img
+                  key={image}
+                  src={image}
+                  alt={`Gallery image ${index + 1}`}
+                  className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ${
+                    index === activeImage
+                      ? "scale-100 opacity-100"
+                      : "scale-105 opacity-0"
+                  }`}
+                />
+              ))}
+
+              <div className="h-[560px]" />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10" />
+
+              <div className="absolute left-5 top-5 rounded-full bg-white/95 px-5 py-2 text-sm font-black text-[#009FE3] shadow-md">
+                📸 Summer School Moments
+              </div>
+
+              <button
+                onClick={goToPreviousImage}
+                className="absolute left-5 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-2xl font-black text-[#1F2933] shadow-lg transition hover:bg-white"
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+
+              <button
+                onClick={goToNextImage}
+                className="absolute right-5 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-2xl font-black text-[#1F2933] shadow-lg transition hover:bg-white"
+                aria-label="Next image"
+              >
+                ›
+              </button>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-[2rem] bg-slate-50 p-6">
+              <div>
+                <div className="inline-flex rounded-full bg-white px-4 py-2 text-sm font-black text-[#E30613] shadow-sm">
+                  Aktiviteti {activeImage + 1} / {galleryImages.length}
+                </div>
+
+                <h3 className="mt-6 text-3xl font-black leading-tight text-[#1F2933]">
+                  Atmosferë, kreativitet dhe argëtim
+                </h3>
+
+                <p className="mt-4 text-base leading-8 text-slate-600">
+                  Fëmijët mësojnë, krijojnë dhe argëtohen përmes eksperiencave
+                  praktike, aktiviteteve edukative, punës në grup dhe
+                  projekteve kreative.
+                </p>
+
+              </div>
+
+              <div className="mt-8">
+                <div className="flex flex-wrap gap-2">
+                  {galleryImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveImage(index)}
+                      className={`h-3 rounded-full transition-all ${
+                        index === activeImage
+                          ? "w-10 bg-[#009FE3]"
+                          : "w-3 bg-slate-300 hover:bg-slate-400"
+                      }`}
+                      aria-label={`Go to gallery image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <button
+                    onClick={goToPreviousImage}
+                    className="rounded-full border-2 border-slate-200 bg-white px-5 py-3 font-black text-slate-700 transition hover:border-[#009FE3] hover:text-[#009FE3]"
+                  >
+                    Previous
+                  </button>
+
+                  <button
+                    onClick={goToNextImage}
+                    className="rounded-full bg-[#009FE3] px-5 py-3 font-black text-white transition hover:bg-[#0087c2]"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GalleryFeature({
+  icon,
+  text,
+  color,
+}: {
+  icon: string;
+  text: string;
+  color: string;
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm">
+      <div
+        className={`grid h-11 w-11 place-items-center rounded-xl ${color} text-xl`}
+      >
+        {icon}
+      </div>
+      <p className="font-black text-slate-800">{text}</p>
+    </div>
+  );
+}
+
+function GalleryStat({
+  number,
+  label,
+  color,
+}: {
+  number: string;
+  label: string;
+  color: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-5 text-center shadow-sm">
+      <p className={`text-3xl font-black ${color}`}>{number}</p>
+      <p className="mt-1 text-sm font-bold text-slate-500">{label}</p>
+    </div>
   );
 }
 
@@ -693,12 +1303,12 @@ function WhyJoin() {
             </p>
 
             <h2 className="mt-4 text-4xl font-black md:text-5xl">
-              More than just a summer activity.
+              Më shumë se vetëm një aktivitet veror.
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-white/90">
-              Students learn how to think, build, communicate, and believe in
-              their own creativity.
+              Fëmijët mësojnë të mendojnë, të ndërtojnë, të bashkëpunojnë, të
+              komunikojnë dhe të krijojnë me vetëbesim.
             </p>
           </div>
 
@@ -732,39 +1342,41 @@ function Register() {
             </p>
 
             <h2 className="mt-4 text-4xl font-black md:text-5xl">
-              Ready to join the summer school?
+              Regjistro fëmijën për Summer School 2026
             </h2>
 
             <p className="mt-5 text-lg leading-8">
-              Register your child and give them a summer full of coding,
-              creativity, engineering, teamwork, and confidence.
+              Plotëso formën e regjistrimit dhe rezervo vendin për programin
+              mujor ose kampin tërëditor.
             </p>
 
             <a
-              href="https://wa.me/38344000000"
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noreferrer"
               className="mt-6 inline-flex rounded-full bg-[#25D366] px-7 py-3 font-black text-white shadow-lg transition hover:bg-[#1db954]"
             >
-              Ask on WhatsApp
+              Pyet në WhatsApp
             </a>
           </div>
 
           <div className="rounded-[2rem] bg-white p-6 shadow-sm">
             <div className="space-y-4">
-              <InfoRow label="Location" value="Prishtina, Kosovo" />
-              <InfoRow label="Age groups" value="7–14 years old" />
-              <InfoRow label="Duration" value="4 weeks" />
-              <InfoRow label="Status" value="Registrations open" />
+              <InfoRow label="Mosha" value="4–15 vjeç" />
+              <InfoRow label="Programi mujor" value="Korrik · 2 orë/ditë" />
+              <InfoRow label="Kampi tërëditor" value="6–17 Korrik" />
+              <InfoRow label="Orari i kampit" value="08:30 – 16:30" />
+              <InfoRow label="Çmimi mujor" value="59€ early bird" />
+              <InfoRow label="Kampi" value="99€/javë early bird" />
             </div>
 
             <a
-              href="https://forms.google.com"
+              href={REGISTRATION_LINK}
               target="_blank"
               rel="noreferrer"
               className="mt-8 block rounded-full bg-[#E30613] px-8 py-4 text-center font-black text-white transition hover:bg-red-700"
             >
-              Open Registration Form
+              Hap formën e regjistrimit
             </a>
           </div>
         </div>
@@ -793,12 +1405,12 @@ function Contact() {
             </p>
 
             <h2 className="mt-4 text-4xl font-black md:text-5xl">
-              Have questions?
+              Keni pyetje?
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Contact us for more information about groups, schedule,
-              registration, and program details.
+              Na kontaktoni për më shumë informata rreth grupeve, orareve,
+              çmimeve dhe regjistrimit.
             </p>
           </div>
 
@@ -855,7 +1467,7 @@ function ContactCard({
 function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/38344000000"
+      href={WHATSAPP_LINK}
       target="_blank"
       rel="noreferrer"
       className="whatsapp-float grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-3xl text-white shadow-2xl"
