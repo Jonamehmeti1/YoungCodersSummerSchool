@@ -171,20 +171,7 @@ const galleryImages = [
   "/images/fotoja.png",
 ];
 
-const testimonials = [
-  {
-    name: "Prind i nxënësit",
-    text: "Fëmija im ka filluar me pas shumë më shumë interes për teknologji, robotikë dhe eksperimente. Ambient shumë pozitiv dhe edukativ.",
-  },
-  {
-    name: "Prind i nxënëses",
-    text: "Na ka pëlqyer shumë mënyra praktike e mësimit. Fëmijët jo vetëm mësojnë, por edhe argëtohen dhe bashkëpunojnë me njëri-tjetrin.",
-  },
-  {
-    name: "Prind",
-    text: "Më pëlqeu shumë që fëmija im nuk ishte vetëm duke mësuar, por duke krijuar diçka me duart e veta. Çdo ditë kthehej në shtëpi me entuziazëm dhe me diçka të re për të treguar.",
-  },
-];
+
 
 const faqs = [
   {
