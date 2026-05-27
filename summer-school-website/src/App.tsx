@@ -18,46 +18,14 @@ const heroAlbumImages = [
 ];
 
 const carouselItems = [
-  {
-    icon: "🤖",
-    title: "Robotikë",
-    color: "bg-[#009FE3]",
-  },
-  {
-    icon: "⚙️",
-    title: "Inxhinieri",
-    color: "bg-[#78BE20]",
-  },
-  {
-    icon: "💻",
-    title: "Kodim",
-    color: "bg-[#F6C400]",
-  },
-  {
-    icon: "🧠",
-    title: "AI",
-    color: "bg-[#E30613]",
-  },
-  {
-    icon: "🧪",
-    title: "Science",
-    color: "bg-[#009FE3]",
-  },
-  {
-    icon: "🖨️",
-    title: "3D Print",
-    color: "bg-[#78BE20]",
-  },
-  {
-    icon: "🌿",
-    title: "Eksplorim",
-    color: "bg-[#F6C400]",
-  },
-  {
-    icon: "🚀",
-    title: "Projects",
-    color: "bg-[#E30613]",
-  },
+  { icon: "🤖", title: "Robotikë", color: "bg-[#009FE3]" },
+  { icon: "⚙️", title: "Inxhinieri", color: "bg-[#78BE20]" },
+  { icon: "💻", title: "Kodim", color: "bg-[#F6C400]" },
+  { icon: "🧠", title: "AI", color: "bg-[#E30613]" },
+  { icon: "🧪", title: "Science", color: "bg-[#009FE3]" },
+  { icon: "🖨️", title: "3D Print", color: "bg-[#78BE20]" },
+  { icon: "🌿", title: "Eksplorim", color: "bg-[#F6C400]" },
+  { icon: "🚀", title: "Projects", color: "bg-[#E30613]" },
 ];
 
 const mainPrograms = [
@@ -111,6 +79,11 @@ const activities = [
     description:
       "Fëmijët ndërtojnë, testojnë dhe mësojnë si funksionojnë robotët dhe sistemet inxhinierike.",
     bullets: ["Build & test", "Team challenges", "Engineering thinking"],
+    moreDetails: [
+      "Fëmijët mësojnë si ndërtohen mekanizma të thjeshtë.",
+      "Punojnë me pjesë praktike, sfida ekipore dhe zgjidhje kreative.",
+      "Zhvillojnë logjikë, durim dhe aftësi për zgjidhjen e problemeve.",
+    ],
   },
   {
     title: "AI & Kodim",
@@ -121,6 +94,11 @@ const activities = [
     description:
       "Nxënësit njihen me bazat e kodimit dhe inteligjencës artificiale përmes aktiviteteve praktike.",
     bullets: ["Coding basics", "AI activities", "Creative logic"],
+    moreDetails: [
+      "Fëmijët mësojnë bazat e logjikës programuese.",
+      "Punojnë me ushtrime kreative ku kompjuteri ndjek udhëzime.",
+      "Njihen me idenë se si AI merr vendime nga të dhënat.",
+    ],
   },
   {
     title: "Science Experiments",
@@ -131,6 +109,11 @@ const activities = [
     description:
       "Eksperimente shkencore që e bëjnë mësimin më argëtues, praktik dhe të kuptueshëm për fëmijët.",
     bullets: ["Experiments", "Discovery", "Hands-on learning"],
+    moreDetails: [
+      "Fëmijët bëjnë eksperimente të sigurta dhe argëtuese.",
+      "Mësojnë përmes vëzhgimit, provës dhe diskutimit.",
+      "Zhvillojnë kuriozitet dhe mënyrë shkencore të të menduarit.",
+    ],
   },
   {
     title: "3D Design & Print",
@@ -141,33 +124,11 @@ const activities = [
     description:
       "Fëmijët eksplorojnë dizajnin 3D dhe idenë se si modelet digjitale mund të kthehen në objekte reale.",
     bullets: ["3D design", "Creative models", "Print concepts"],
-  },
-];
-
-const schedule = [
-  {
-    week: "Programi Mujor",
-    title: "Gjatë gjithë Korrikut",
-    text: "E Hënë – E Premte, nga 2 orë në ditë. Programi përfshin robotikë, inxhinieri, AI, kodim, eksperimente shkencore, 3D design & print dhe aktivitete kreative.",
-    color: "bg-[#009FE3]",
-  },
-  {
-    week: "Kampi Tërëditor",
-    title: "6 Korrik – 17 Korrik",
-    text: "Çdo ditë nga ora 08:30 deri 16:30. Fëmijët përfshihen në aktivitete edukative, kreative dhe eksploruese, përfshirë edhe eksplorim të natyrës.",
-    color: "bg-[#78BE20]",
-  },
-  {
-    week: "Aktivitetet",
-    title: "Teknologji + kreativitet + argëtim",
-    text: "Robotikë & Inxhinieri, AI & Kodim, Science Experiments, 3D Design & Print, aktivitete kreative dhe eksploruese.",
-    color: "bg-[#F6C400]",
-  },
-  {
-    week: "Regjistrimi",
-    title: "Early Bird Discount",
-    text: "Programi mujor: 79€ çmimi i rregullt, 59€ me zbritje. Kampi tërëditor: 119€/javë, 99€/javë me zbritje, ose 189€ për dy javë.",
-    color: "bg-[#E30613]",
+    moreDetails: [
+      "Fëmijët njihen me konceptin e dizajnit 3D.",
+      "Mësojnë si një ide digjitale mund të kthehet në objekt real.",
+      "Zhvillojnë kreativitet, imagjinatë dhe mendim hapësinor.",
+    ],
   },
 ];
 
@@ -202,24 +163,137 @@ const galleryImages = [
   "/images/fotoja.png",
 ];
 
+const testimonials = [
+  {
+    name: "Prind i nxënësit",
+    text: "Fëmija im ka filluar me pas shumë më shumë interes për teknologji, robotikë dhe eksperimente. Ambient shumë pozitiv dhe edukativ.",
+  },
+  {
+    name: "Prind i nxënëses",
+    text: "Na ka pëlqyer shumë mënyra praktike e mësimit. Fëmijët jo vetëm mësojnë, por edhe argëtohen dhe bashkëpunojnë me njëri-tjetrin.",
+  },
+  {
+    name: "Prind",
+    text: "Program shumë i mirë për verë. Aktivitetet janë të larmishme dhe fëmijët kthehen në shtëpi me ide të reja çdo ditë.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Për cilat mosha është Summer School?",
+    answer:
+      "Programi është për fëmijë të moshave 4–15 vjeç. Aktivitetet përshtaten sipas moshës dhe nivelit të fëmijëve.",
+  },
+  {
+    question: "Sa zgjat programi mujor?",
+    answer:
+      "Programi mujor mbahet gjatë gjithë muajit Korrik, nga e Hëna deri të Premten, me nga 2 orë aktivitete në ditë.",
+  },
+  {
+    question: "Kur mbahet kampi tërëditor?",
+    answer:
+      "Kampi tërëditor mbahet prej 6 Korrik deri më 17 Korrik, nga ora 08:30 deri në 16:30.",
+  },
+  {
+    question: "Çka mësojnë fëmijët?",
+    answer:
+      "Fëmijët mësojnë robotikë, inxhinieri, AI, kodim, eksperimente shkencore, 3D Design & Print dhe aktivitete kreative.",
+  },
+  {
+    question: "Si mund të regjistrohem?",
+    answer:
+      "Mund të klikoni butonin 'Regjistrohu tani' ose të na shkruani direkt në WhatsApp për më shumë informata.",
+  },
+];
+
 function App() {
+  const [showActivities, setShowActivities] = useState(true);
+
+  function handleShowActivities() {
+    setShowActivities(true);
+
+    setTimeout(() => {
+      document.getElementById("activities")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
+  }
+
   return (
     <main className="min-h-screen bg-white text-[#1F2933]">
       <Navbar />
+
       <Hero />
       <TechCarousel />
       <DiscountCountdown />
       <About />
-      <Programs />
-      <Activities />
+      <Programs onShowActivities={handleShowActivities} />
+
+      {showActivities && <Activities />}
+
       <Schedule />
       <Gallery />
       <WhyJoin />
+      <Testimonials />
+      <FAQ />
       <Register />
       <Contact />
+
       <Footer />
       <WhatsAppFloat />
     </main>
+  );
+}
+
+function BackgroundShapes({
+  variant = "mixed",
+}: {
+  variant?: "mixed" | "blue" | "green" | "yellow" | "red";
+}) {
+  const shapes =
+    variant === "blue"
+      ? ["🤖", "⚙️", "💻", "🧩", "🔧", "🚀", "📘", "🛰️"]
+      : variant === "green"
+      ? ["🌿", "🧪", "⚙️", "🧠", "🔬", "✨", "🌱", "🧬"]
+      : variant === "yellow"
+      ? ["💡", "🚀", "🧩", "⭐", "🎯", "📚", "✨", "🔆"]
+      : variant === "red"
+      ? ["🚀", "🎯", "🧠", "💡", "🧩", "🔥", "⭐", "📌"]
+      : ["🤖", "💻", "🧪", "🧩", "⚙️", "🚀", "💡", "🔬"];
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="absolute left-8 top-10 text-7xl opacity-10">
+        {shapes[0]}
+      </div>
+      <div className="absolute right-10 top-20 text-7xl opacity-10">
+        {shapes[1]}
+      </div>
+      <div className="absolute bottom-16 left-16 text-6xl opacity-10">
+        {shapes[2]}
+      </div>
+      <div className="absolute bottom-10 right-24 text-6xl opacity-10">
+        {shapes[3]}
+      </div>
+      <div className="absolute left-1/2 top-16 hidden -translate-x-1/2 text-6xl opacity-10 md:block">
+        {shapes[4]}
+      </div>
+      <div className="absolute bottom-20 left-1/2 hidden -translate-x-1/2 text-6xl opacity-10 md:block">
+        {shapes[5]}
+      </div>
+      <div className="absolute left-1/4 top-1/2 hidden text-5xl opacity-10 lg:block">
+        {shapes[6]}
+      </div>
+      <div className="absolute right-1/4 bottom-1/3 hidden text-5xl opacity-10 lg:block">
+        {shapes[7]}
+      </div>
+
+      <div className="absolute -left-20 top-1/3 h-72 w-72 rounded-full bg-[#009FE3]/10 blur-3xl" />
+      <div className="absolute -right-20 bottom-1/4 h-72 w-72 rounded-full bg-[#F6C400]/20 blur-3xl" />
+      <div className="absolute left-1/3 bottom-0 h-56 w-56 rounded-full bg-[#78BE20]/10 blur-3xl" />
+      <div className="absolute right-1/3 top-1/3 h-52 w-52 rounded-full bg-[#E30613]/10 blur-3xl" />
+    </div>
   );
 }
 
@@ -237,7 +311,9 @@ function Navbar() {
           </div>
 
           <div>
-            <p className="text-lg font-black leading-none">Young Engineers Prishtina</p>
+            <p className="text-lg font-black leading-none">
+              Young Engineers Prishtina
+            </p>
             <p className="text-xs font-bold uppercase tracking-wider text-[#009FE3]">
               Summer School 2026
             </p>
@@ -271,6 +347,13 @@ function Navbar() {
             className="text-sm font-semibold text-slate-600 hover:text-[#009FE3]"
           >
             Gallery
+          </a>
+
+          <a
+            href="#faq"
+            className="text-sm font-semibold text-slate-600 hover:text-[#009FE3]"
+          >
+            FAQ
           </a>
 
           <a
@@ -327,6 +410,7 @@ function Hero() {
   return (
     <section className="engineering-grid relative overflow-hidden bg-gradient-to-br from-white via-[#F7FBFF] to-[#EAF7FF]">
       <FloatingHeroElements />
+      <BackgroundShapes variant="mixed" />
 
       <div className="absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#009FE3]/15 blur-3xl" />
       <div className="absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-[#78BE20]/15 blur-3xl" />
@@ -527,15 +611,12 @@ function DiscountCountdown() {
       }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
       const hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
-
       const minutes = Math.floor(
         (distance % (1000 * 60 * 60)) / (1000 * 60)
       );
-
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       setTimeLeft({
@@ -554,8 +635,10 @@ function DiscountCountdown() {
   }, [discountEndDate]);
 
   return (
-    <section className="bg-[#1F2933] px-6 py-8 text-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
+    <section className="relative overflow-hidden bg-[#1F2933] px-6 py-8 text-white">
+      <BackgroundShapes variant="red" />
+
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
         <div>
           <div className="inline-flex rounded-full bg-[#E30613] px-4 py-2 text-sm font-black text-white">
             Early Bird Discount
@@ -566,32 +649,16 @@ function DiscountCountdown() {
           </h2>
 
           <p className="mt-1 text-white/70">
-            Përfito zbritje deri në 25% për regjistrimet e hershme në programin mujor
-            dhe kampin tërëditor.
+            Përfito zbritje deri në 25% për regjistrimet e hershme në programin
+            mujor dhe kampin tërëditor.
           </p>
         </div>
 
         <div className="grid grid-cols-4 gap-3 text-center">
-          <CountdownBox
-            number={timeLeft.days}
-            label="Ditë"
-            color="bg-[#009FE3]"
-          />
-          <CountdownBox
-            number={timeLeft.hours}
-            label="Orë"
-            color="bg-[#78BE20]"
-          />
-          <CountdownBox
-            number={timeLeft.minutes}
-            label="Min"
-            color="bg-[#F6C400]"
-          />
-          <CountdownBox
-            number={timeLeft.seconds}
-            label="Sek"
-            color="bg-[#E30613]"
-          />
+          <CountdownBox number={timeLeft.days} label="Ditë" color="bg-[#009FE3]" />
+          <CountdownBox number={timeLeft.hours} label="Orë" color="bg-[#78BE20]" />
+          <CountdownBox number={timeLeft.minutes} label="Min" color="bg-[#F6C400]" />
+          <CountdownBox number={timeLeft.seconds} label="Sek" color="bg-[#E30613]" />
         </div>
 
         <a
@@ -629,49 +696,10 @@ function CountdownBox({
   );
 }
 
-function Stat({
-  number,
-  label,
-  color,
-}: {
-  number: string;
-  label: string;
-  color: string;
-}) {
-  return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-4 text-center shadow-sm">
-      <p className={`text-2xl font-black ${color}`}>{number}</p>
-      <p className="mt-1 text-xs font-bold text-slate-500">{label}</p>
-    </div>
-  );
-}
-
-function MiniCard({
-  icon,
-  title,
-  color,
-}: {
-  icon: string;
-  title: string;
-  color: string;
-}) {
-  return (
-    <div className="card-hover rounded-2xl bg-white p-4 shadow-sm">
-      <div
-        className={`grid h-12 w-12 place-items-center rounded-2xl ${color} text-2xl`}
-      >
-        {icon}
-      </div>
-
-      <p className="mt-3 font-black text-slate-800">{title}</p>
-    </div>
-  );
-}
-
 function About() {
   return (
     <section id="about" className="relative mx-auto max-w-7xl px-6 py-20">
-      <div className="absolute -left-20 top-20 h-64 w-64 rounded-full bg-[#F6C400]/20 blur-3xl" />
+      <BackgroundShapes variant="yellow" />
 
       <div className="relative grid gap-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:grid-cols-2 md:p-12">
         <div>
@@ -701,15 +729,17 @@ function About() {
   );
 }
 
-function Programs() {
+function Programs({
+  onShowActivities,
+}: {
+  onShowActivities: () => void;
+}) {
   return (
     <section
       id="programs"
       className="relative overflow-hidden bg-slate-50 py-20 text-[#1F2933]"
     >
-      <div className="absolute left-10 top-10 text-7xl opacity-10">⚙️</div>
-      <div className="absolute right-10 top-24 text-7xl opacity-10">🧩</div>
-      <div className="absolute bottom-10 left-1/3 text-7xl opacity-10">💻</div>
+      <BackgroundShapes variant="mixed" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
@@ -724,7 +754,11 @@ function Programs() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {mainPrograms.map((program) => (
-            <ProgramCard key={program.title} {...program} />
+            <ProgramCard
+              key={program.title}
+              {...program}
+              onShowActivities={onShowActivities}
+            />
           ))}
         </div>
       </div>
@@ -744,6 +778,7 @@ function ProgramCard({
   price,
   discountPrice,
   priceNote,
+  onShowActivities,
 }: {
   title: string;
   subtitle: string;
@@ -756,6 +791,7 @@ function ProgramCard({
   price: string;
   discountPrice: string;
   priceNote: string;
+  onShowActivities: () => void;
 }) {
   return (
     <div className="card-hover group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
@@ -816,23 +852,41 @@ function ProgramCard({
           <p className="mt-2 font-bold text-slate-600">{priceNote}</p>
         </div>
 
-        <a
-          href={REGISTRATION_LINK}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-7 block rounded-full bg-[#009FE3] px-5 py-4 text-center text-sm font-black text-white transition hover:bg-[#0087c2]"
-        >
-          Regjistrohu për këtë program
-        </a>
+        <div className="mt-7 grid gap-3 sm:grid-cols-2">
+          <a
+            href={REGISTRATION_LINK}
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-full bg-[#009FE3] px-5 py-4 text-center text-sm font-black text-white transition hover:bg-[#0087c2]"
+          >
+            Regjistrohu
+          </a>
+
+          <button
+            type="button"
+            onClick={onShowActivities}
+            className="block rounded-full border-2 border-[#009FE3] bg-white px-5 py-4 text-center text-sm font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white"
+          >
+            Programet
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
 function Activities() {
+  const [openActivity, setOpenActivity] = useState<string | null>(null);
+
+  function toggleActivity(title: string) {
+    setOpenActivity((current) => (current === title ? null : title));
+  }
+
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="activities" className="relative overflow-hidden bg-white py-20">
+      <BackgroundShapes variant="green" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-[#78BE20]">
             Activities
@@ -841,72 +895,99 @@ function Activities() {
           <h2 className="mt-4 text-4xl font-black md:text-5xl">
             Çka do të mësojnë fëmijët?
           </h2>
-
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-4">
-          {activities.map((activity) => (
-            <div
-              key={activity.title}
-              className="card-hover group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
-            >
-              <div className={`h-3 ${activity.color}`} />
+          {activities.map((activity) => {
+            const isOpen = openActivity === activity.title;
 
-              <div className="h-44 overflow-hidden">
-                <img
-                  src={activity.image}
-                  alt={activity.title}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                />
-              </div>
+            return (
+              <div
+                key={activity.title}
+                className="card-hover group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
+              >
+                <div className={`h-3 ${activity.color}`} />
 
-              <div className="p-6">
-                <div
-                  className={`grid h-16 w-16 place-items-center rounded-3xl ${activity.color} text-3xl`}
-                >
-                  {activity.icon}
+                <div className="h-44 overflow-hidden">
+                  <img
+                    src={activity.image}
+                    alt={activity.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
                 </div>
 
-                <p className="mt-6 text-sm font-black uppercase tracking-wider text-slate-500">
-                  {activity.age}
-                </p>
+                <div className="p-6">
+                  <div
+                    className={`grid h-16 w-16 place-items-center rounded-3xl ${activity.color} text-3xl`}
+                  >
+                    {activity.icon}
+                  </div>
 
-                <h3 className="mt-2 text-xl font-black">{activity.title}</h3>
+                  <p className="mt-6 text-sm font-black uppercase tracking-wider text-slate-500">
+                    {activity.age}
+                  </p>
 
-                <p className="mt-4 leading-7 text-slate-600">
-                  {activity.description}
-                </p>
+                  <h3 className="mt-2 text-xl font-black">{activity.title}</h3>
 
-                <div className="mt-5 space-y-2">
-                  {activity.bullets.map((bullet) => (
-                    <div
-                      key={bullet}
-                      className="flex items-center gap-2 rounded-2xl bg-slate-50 px-3 py-2 text-sm font-bold text-slate-600"
-                    >
-                      <span className="h-2 w-2 rounded-full bg-[#009FE3]" />
-                      {bullet}
+                  <p className="mt-4 leading-7 text-slate-600">
+                    {activity.description}
+                  </p>
+
+                  <div className="mt-5 space-y-2">
+                    {activity.bullets.map((bullet) => (
+                      <div
+                        key={bullet}
+                        className="flex items-center gap-2 rounded-2xl bg-slate-50 px-3 py-2 text-sm font-bold text-slate-600"
+                      >
+                        <span className="h-2 w-2 rounded-full bg-[#009FE3]" />
+                        {bullet}
+                      </div>
+                    ))}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => toggleActivity(activity.title)}
+                    className="mt-5 w-full rounded-full bg-[#009FE3] px-5 py-3 text-sm font-black text-white transition hover:bg-[#0087c2]"
+                  >
+                    {isOpen ? "Mbyll detajet" : "Mëso më shumë"}
+                  </button>
+
+                  {isOpen && (
+                    <div className="mt-5 rounded-3xl bg-slate-50 p-4">
+                      <p className="text-sm font-black uppercase tracking-wider text-slate-500">
+                        Detaje shtesë
+                      </p>
+
+                      <div className="mt-3 space-y-3">
+                        {activity.moreDetails.map((detail) => (
+                          <div
+                            key={detail}
+                            className="rounded-2xl bg-white px-4 py-3 text-sm font-bold leading-6 text-slate-600 shadow-sm"
+                          >
+                            ✅ {detail}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
 function Schedule() {
   return (
     <section
       id="schedule"
       className="engineering-grid relative overflow-hidden px-6 py-20"
     >
-      <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-[#009FE3]/10 blur-3xl" />
-      <div className="absolute -right-20 bottom-20 h-72 w-72 rounded-full bg-[#F6C400]/20 blur-3xl" />
-      <div className="absolute right-1/3 top-20 hidden text-7xl opacity-10 md:block">
-        📅
-      </div>
+      <BackgroundShapes variant="blue" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="max-w-3xl">
@@ -969,36 +1050,12 @@ function Schedule() {
             </p>
 
             <div className="mt-6 grid gap-3">
-              <ActivityLine
-                icon="🤖"
-                text="Robotikë & Inxhinieri"
-                color="bg-[#009FE3]"
-              />
-              <ActivityLine
-                icon="💻"
-                text="AI & Kodim"
-                color="bg-[#78BE20]"
-              />
-              <ActivityLine
-                icon="🧪"
-                text="Science Experiments"
-                color="bg-[#F6C400]"
-              />
-              <ActivityLine
-                icon="🖨️"
-                text="3D Design & Print"
-                color="bg-[#E30613]"
-              />
-              <ActivityLine
-                icon="🌿"
-                text="Aktivitete kreative dhe eksploruese"
-                color="bg-[#009FE3]"
-              />
-              <ActivityLine
-                icon="👥"
-                text="Punë në grup dhe prezantime"
-                color="bg-[#78BE20]"
-              />
+              <ActivityLine icon="🤖" text="Robotikë & Inxhinieri" color="bg-[#009FE3]" />
+              <ActivityLine icon="💻" text="AI & Kodim" color="bg-[#78BE20]" />
+              <ActivityLine icon="🧪" text="Science Experiments" color="bg-[#F6C400]" />
+              <ActivityLine icon="🖨️" text="3D Design & Print" color="bg-[#E30613]" />
+              <ActivityLine icon="🌿" text="Aktivitete kreative dhe eksploruese" color="bg-[#009FE3]" />
+              <ActivityLine icon="👥" text="Punë në grup dhe prezantime" color="bg-[#78BE20]" />
             </div>
 
             <a
@@ -1091,6 +1148,7 @@ function ActivityLine({
     </div>
   );
 }
+
 function Gallery() {
   const [activeImage, setActiveImage] = useState(0);
 
@@ -1118,8 +1176,7 @@ function Gallery() {
 
   return (
     <section id="gallery" className="relative overflow-hidden bg-slate-50 py-20">
-      <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-[#009FE3]/10 blur-3xl" />
-      <div className="absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-[#F6C400]/20 blur-3xl" />
+      <BackgroundShapes variant="yellow" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
@@ -1188,7 +1245,6 @@ function Gallery() {
                   praktike, aktiviteteve edukative, punës në grup dhe
                   projekteve kreative.
                 </p>
-
               </div>
 
               <div className="mt-8">
@@ -1231,50 +1287,10 @@ function Gallery() {
   );
 }
 
-function GalleryFeature({
-  icon,
-  text,
-  color,
-}: {
-  icon: string;
-  text: string;
-  color: string;
-}) {
-  return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm">
-      <div
-        className={`grid h-11 w-11 place-items-center rounded-xl ${color} text-xl`}
-      >
-        {icon}
-      </div>
-      <p className="font-black text-slate-800">{text}</p>
-    </div>
-  );
-}
-
-function GalleryStat({
-  number,
-  label,
-  color,
-}: {
-  number: string;
-  label: string;
-  color: string;
-}) {
-  return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-5 text-center shadow-sm">
-      <p className={`text-3xl font-black ${color}`}>{number}</p>
-      <p className="mt-1 text-sm font-bold text-slate-500">{label}</p>
-    </div>
-  );
-}
-
 function WhyJoin() {
   return (
     <section className="relative overflow-hidden bg-[#009FE3] py-20">
-      <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-white/20" />
-      <div className="absolute right-10 bottom-10 h-56 w-56 rounded-full bg-[#F6C400]/30" />
-      <div className="absolute right-1/3 top-10 text-7xl opacity-20">⚙️</div>
+      <BackgroundShapes variant="blue" />
 
       <div className="relative mx-auto max-w-7xl px-6 text-white">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
@@ -1304,9 +1320,85 @@ function WhyJoin() {
   );
 }
 
+function Testimonials() {
+  return (
+    <section className="relative overflow-hidden bg-white py-20">
+      <BackgroundShapes variant="green" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#78BE20]">
+            Testimonials
+          </p>
+
+          <h2 className="mt-4 text-4xl font-black md:text-5xl">
+            Çka thonë prindërit?
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {testimonials.map((item) => (
+            <div
+              key={item.name}
+              className="card-hover rounded-[2rem] border border-slate-200 bg-slate-50 p-7 shadow-sm"
+            >
+              <div className="grid h-16 w-16 place-items-center rounded-3xl bg-[#F6C400] text-3xl">
+                ⭐
+              </div>
+
+              <p className="mt-6 text-lg leading-8 text-slate-600">
+                “{item.text}”
+              </p>
+
+              <p className="mt-6 font-black text-[#1F2933]">{item.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  return (
+    <section id="faq" className="relative overflow-hidden bg-slate-50 py-20">
+      <BackgroundShapes variant="yellow" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
+            FAQ
+          </p>
+
+          <h2 className="mt-4 text-4xl font-black md:text-5xl">
+            Pyetjet më të shpeshta
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-5">
+          {faqs.map((faq) => (
+            <div
+              key={faq.question}
+              className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <h3 className="text-xl font-black text-[#1F2933]">
+                {faq.question}
+              </h3>
+
+              <p className="mt-3 leading-8 text-slate-600">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Register() {
   return (
-    <section id="register" className="mx-auto max-w-7xl px-6 py-20">
+    <section id="register" className="relative mx-auto max-w-7xl overflow-hidden px-6 py-20">
+      <BackgroundShapes variant="red" />
+
       <div className="relative overflow-hidden rounded-[2.5rem] bg-[#F6C400] text-[#1F2933]">
         <div className="absolute right-8 top-8 text-7xl opacity-20">🚀</div>
         <div className="absolute bottom-8 left-8 text-7xl opacity-20">💻</div>
@@ -1372,12 +1464,17 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 
 function Contact() {
   return (
-    <section id="contact" className="bg-slate-50 py-20 text-[#1F2933]">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-slate-50 py-20 text-[#1F2933]"
+    >
+      <BackgroundShapes variant="blue" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.3em] text-[#009FE3]">
-              Contact
+              Contact + map
             </p>
 
             <h2 className="mt-4 text-4xl font-black md:text-5xl">
@@ -1388,28 +1485,45 @@ function Contact() {
               Na kontaktoni për më shumë informata rreth grupeve, orareve,
               çmimeve dhe regjistrimit.
             </p>
+
+            <div className="mt-8 grid gap-4">
+              <ContactCard
+                title="Email"
+                value="yeprishtina@gmail.com"
+                color="border-[#009FE3]"
+              />
+              <ContactCard
+                title="Phone"
+                value="+383 44 000 000"
+                color="border-[#78BE20]"
+              />
+              <ContactCard
+                title="WhatsApp"
+                value="+383 44 000 000"
+                color="border-[#25D366]"
+              />
+              <ContactCard
+                title="Location"
+                value="Prishtina, Kosovo"
+                color="border-[#E30613]"
+              />
+            </div>
           </div>
 
-          <div className="grid gap-4">
-            <ContactCard
-              title="Email"
-              value="yeprishtina@gmail.com"
-              color="border-[#009FE3]"
-            />
-            <ContactCard
-              title="Phone"
-              value="+383 44 000 000"
-              color="border-[#78BE20]"
-            />
-            <ContactCard
-              title="WhatsApp"
-              value="+383 44 000 000"
-              color="border-[#25D366]"
-            />
-            <ContactCard
-              title="Location"
-              value="Prishtina, Kosovo"
-              color="border-[#E30613]"
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="mb-4">
+              <h3 className="text-2xl font-black">Na gjeni këtu</h3>
+              <p className="mt-2 text-slate-600">
+                Young Engineers Prishtina · Prishtina, Kosovo
+              </p>
+            </div>
+
+            <iframe
+              title="Young Engineers Prishtina Map"
+              src="https://www.google.com/maps?q=Prishtina%20Kosovo&output=embed"
+              className="h-[420px] w-full rounded-[1.5rem] border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>
@@ -1428,9 +1542,7 @@ function ContactCard({
   color: string;
 }) {
   return (
-    <div
-      className={`card-hover rounded-3xl border-l-8 ${color} bg-white p-6 shadow-sm`}
-    >
+    <div className={`rounded-3xl border-l-8 ${color} bg-white p-6 shadow-sm`}>
       <p className="text-sm font-black uppercase tracking-wider text-slate-500">
         {title}
       </p>
@@ -1446,7 +1558,7 @@ function WhatsAppFloat() {
       href={WHATSAPP_LINK}
       target="_blank"
       rel="noreferrer"
-      className="whatsapp-float grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-3xl text-white shadow-2xl"
+      className="fixed bottom-6 right-6 z-50 grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-3xl text-white shadow-2xl"
       aria-label="Write on WhatsApp"
     >
       💬
@@ -1468,6 +1580,23 @@ function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function Stat({
+  number,
+  label,
+  color,
+}: {
+  number: string;
+  label: string;
+  color: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-4 text-center shadow-sm">
+      <p className={`text-2xl font-black ${color}`}>{number}</p>
+      <p className="mt-1 text-xs font-bold text-slate-500">{label}</p>
+    </div>
   );
 }
 
