@@ -476,7 +476,7 @@ function FloatingHeroElements() {
         ⚙️
       </div>
 
-      <div className="float-element absolute left-1/4 top-48 hidden rounded-3xl bg-white p-4 text-3xl shadow-xl md:block">
+      <div className="float-element absolute left-1 top-48 hidden rounded-3xl bg-white p-4 text-3xl shadow-xl md:block">
         🤖
       </div>
     </>
@@ -1331,32 +1331,7 @@ function WhyJoin() {
   );
 }
 
-
 function FAQ() {
-  const [activeFaq, setActiveFaq] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveFaq((current) =>
-        current === faqs.length - 1 ? 0 : current + 1
-      );
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  function goToPreviousFaq() {
-    setActiveFaq((current) =>
-      current === 0 ? faqs.length - 1 : current - 1
-    );
-  }
-
-  function goToNextFaq() {
-    setActiveFaq((current) =>
-      current === faqs.length - 1 ? 0 : current + 1
-    );
-  }
-
   return (
     <section
       id="faq"
@@ -1365,7 +1340,7 @@ function FAQ() {
       <BackgroundShapes variant="yellow" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="max-w-2xl">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
             FAQ
           </p>
@@ -1375,83 +1350,20 @@ function FAQ() {
           </h2>
         </div>
 
-        <div className="relative mx-auto mt-12 flex min-h-[330px] max-w-5xl items-center justify-center sm:min-h-[360px]">
-          {faqs.map((faq, index) => {
-            const offset =
-              (index - activeFaq + faqs.length) % faqs.length;
+        <div className="mt-10 grid gap-5 sm:mt-12">
+          {faqs.map((faq) => (
+            <div
+              key={faq.question}
+              className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
+            >
+              <h3 className="text-lg font-black text-[#1F2933] sm:text-xl">
+                {faq.question}
+              </h3>
 
-            let positionClass =
-              "pointer-events-none scale-75 opacity-0 translate-x-0 translate-y-0 z-0";
-
-            if (offset === 0) {
-              positionClass =
-                "z-30 scale-100 opacity-100 translate-x-0 translate-y-0";
-            } else if (offset === 1) {
-              positionClass =
-                "z-20 scale-90 opacity-45 translate-x-[42%] translate-y-5";
-            } else if (offset === faqs.length - 1) {
-              positionClass =
-                "z-20 scale-90 opacity-45 -translate-x-[42%] translate-y-5";
-            } else if (offset === 2) {
-              positionClass =
-                "z-10 scale-80 opacity-20 translate-x-[68%] translate-y-10";
-            } else if (offset === faqs.length - 2) {
-              positionClass =
-                "z-10 scale-80 opacity-20 -translate-x-[68%] translate-y-10";
-            }
-
-            return (
-              <div
-                key={faq.question}
-                className={`absolute w-full max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl transition-all duration-700 ease-in-out sm:p-8 ${positionClass}`}
-              >
-                <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F6C400] text-2xl shadow-sm">
-                  ❓
-                </div>
-
-                <h3 className="text-xl font-black leading-tight text-[#1F2933] sm:text-2xl">
-                  {faq.question}
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
-                  {faq.answer}
-                </p>
-              </div>
-            );
-          })}
-
-          <button
-            type="button"
-            onClick={goToPreviousFaq}
-            className="absolute left-0 z-40 grid h-11 w-11 place-items-center rounded-full bg-white text-2xl font-black text-[#1F2933] shadow-lg transition hover:bg-[#009FE3] hover:text-white sm:left-6 sm:h-12 sm:w-12"
-            aria-label="Previous FAQ"
-          >
-            ‹
-          </button>
-
-          <button
-            type="button"
-            onClick={goToNextFaq}
-            className="absolute right-0 z-40 grid h-11 w-11 place-items-center rounded-full bg-white text-2xl font-black text-[#1F2933] shadow-lg transition hover:bg-[#009FE3] hover:text-white sm:right-6 sm:h-12 sm:w-12"
-            aria-label="Next FAQ"
-          >
-            ›
-          </button>
-        </div>
-
-        <div className="mt-6 flex justify-center gap-2">
-          {faqs.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => setActiveFaq(index)}
-              className={`h-3 rounded-full transition-all ${
-                index === activeFaq
-                  ? "w-10 bg-[#009FE3]"
-                  : "w-3 bg-slate-300 hover:bg-slate-400"
-              }`}
-              aria-label={`Go to FAQ ${index + 1}`}
-            />
+              <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
+                {faq.answer}
+              </p>
+            </div>
           ))}
         </div>
       </div>
