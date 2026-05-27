@@ -17,21 +17,18 @@ type PlanProgram = {
   title: string;
   image: string;
   description: string;
-  points: string[];
   fullDetails: string[];
 };
 
 const heroAlbumImages = [
-  "/images/hero-kids.png",
-  "/images/coding-class.png",
-  "/images/stem-camp.png",
+  "/images/pic13.jpg",
+   "/images/hero-kids.png",
+  "/images/pic2.jpg",
+  "/images/pic4.jpg",
   "/images/foto2.PNG",
   "/images/foto3.PNG",
-  "/images/fotoja.png",
-  "/images/pic1.jpg",
-  "/images/pic2.jpg",
-  "/images/pic3.jpg",
-  "/images/pic4.jpg",
+  "/images/fotoja.png"
+
 ];
 
 const carouselItems = [
@@ -89,15 +86,9 @@ const planPrograms: PlanProgram[] = [
     icon: "🤖",
     color: "bg-[#009FE3]",
     title: "Robotikë & Inxhinieri",
-    image: "/images/foto3.PNG",
+    image: "/images/pic1.jpg",
     description:
       "Fëmijët mësojnë si funksionojnë robotët, mekanizmat dhe sistemet inxhinierike përmes ndërtimit dhe testimit praktik.",
-    points: [
-      "Ndërtim i modeleve praktike",
-      "Testim dhe përmirësim i ideve",
-      "Sfida ekipore dhe problem-solving",
-      "Zhvillim i mendimit logjik dhe kreativ",
-    ],
     fullDetails: [
       "Fëmijët njihen me konceptet bazë të robotikës përmes aktiviteteve praktike dhe të kuptueshme për moshën e tyre.",
       "Ata ndërtojnë modele, testojnë si funksionojnë pjesët mekanike dhe mësojnë pse një strukturë duhet të jetë e qëndrueshme.",
@@ -109,15 +100,9 @@ const planPrograms: PlanProgram[] = [
     icon: "💻",
     color: "bg-[#78BE20]",
     title: "AI & Kodim",
-    image: "/images/pic3.jpg",
+    image: "/images/fotoja.png",
     description:
       "Nxënësit njihen me kodimin dhe konceptet bazë të inteligjencës artificiale në mënyrë të thjeshtë, argëtuese dhe praktike.",
-    points: [
-      "Bazat e logjikës programuese",
-      "Udhëzime, hapa dhe algoritme",
-      "Aktivitete kreative me AI",
-      "Si kompjuteri merr vendime nga të dhënat",
-    ],
     fullDetails: [
       "Fëmijët mësojnë bazat e kodimit përmes shembujve të thjeshtë, lojërave logjike dhe aktiviteteve kreative.",
       "Ata kuptojnë se programimi është dhënie e udhëzimeve hap pas hapi për kompjuterin.",
@@ -129,15 +114,9 @@ const planPrograms: PlanProgram[] = [
     icon: "🧪",
     color: "bg-[#F6C400]",
     title: "Science Experiments",
-    image: "/images/foto2.PNG",
+    image: "/images/pic11.jpg",
     description:
       "Fëmijët eksplorojnë shkencën përmes eksperimenteve të sigurta, vëzhgimit dhe diskutimit.",
-    points: [
-      "Eksperimente praktike",
-      "Vëzhgim dhe analizë",
-      "Pyetje dhe zbulime",
-      "Mësim përmes provës dhe kuriozitetit",
-    ],
     fullDetails: [
       "Ky modul i ndihmon fëmijët ta shohin shkencën si diçka praktike dhe argëtuese.",
       "Fëmijët marrin pjesë në eksperimente të thjeshta dhe të sigurta, ku vëzhgojnë çfarë ndodh dhe pse ndodh.",
@@ -149,15 +128,9 @@ const planPrograms: PlanProgram[] = [
     icon: "🖨️",
     color: "bg-[#E30613]",
     title: "3D Design & Print",
-    image: "/images/foto3.PNG",
+    image: "/images/pic10.jpg",
     description:
       "Fëmijët mësojnë si idetë digjitale mund të kthehen në modele dhe objekte reale përmes dizajnit 3D.",
-    points: [
-      "Hyrje në dizajn 3D",
-      "Krijim i modeleve kreative",
-      "Kuptimi i procesit të printimit 3D",
-      "Zhvillim i imagjinatës dhe mendimit hapësinor",
-    ],
     fullDetails: [
       "Fëmijët njihen me konceptin e dizajnit 3D dhe mënyrën si krijohen objektet në hapësirë digjitale.",
       "Ata mësojnë si një ide mund të shndërrohet në model dhe pastaj në objekt real.",
@@ -847,7 +820,7 @@ function About() {
           <div className="absolute -bottom-4 -left-4 h-28 w-28 rounded-full bg-[#009FE3]/20 blur-xl" />
 
           <img
-            src="/images/hero-kids.png"
+            src="/images/pic7.jpg"
             alt="Fëmijë duke mësuar përmes teknologjisë dhe aktiviteteve kreative"
             className="relative h-full min-h-[260px] w-full rounded-[1.5rem] object-cover shadow-lg"
           />
@@ -1006,7 +979,6 @@ function PlanProgramCard({
   title,
   image,
   description,
-  points,
   onLearnMore,
 }: PlanProgram & { onLearnMore: () => void }) {
   return (
@@ -1034,17 +1006,7 @@ function PlanProgramCard({
           {description}
         </p>
 
-        <div className="mt-5 grid gap-2">
-          {points.map((point) => (
-            <div
-              key={point}
-              className="rounded-xl bg-slate-50 px-3 py-2 text-xs font-bold leading-5 text-slate-600 sm:text-sm"
-            >
-              ✅ {point}
-            </div>
-          ))}
-        </div>
-
+        
         <button
           type="button"
           onClick={onLearnMore}
