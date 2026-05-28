@@ -35,26 +35,26 @@ const carouselItems = [
   { icon: "🤖", title: "Robotikë", color: "bg-[#009FE3]" },
   { icon: "⚙️", title: "Inxhinieri", color: "bg-[#78BE20]" },
   { icon: "💻", title: "Kodim", color: "bg-[#F6C400]" },
-  { icon: "🧠", title: "AI", color: "bg-[#E30613]" },
+  { icon: "🧠", title: "AI", color: "bg-[#EF6F6C]" },
   { icon: "🧪", title: "Science", color: "bg-[#009FE3]" },
   { icon: "🖨️", title: "3D Print", color: "bg-[#78BE20]" },
   { icon: "🌿", title: "Eksplorim", color: "bg-[#F6C400]" },
-  { icon: "🚀", title: "Projects", color: "bg-[#E30613]" },
+  { icon: "🚀", title: "Projects", color: "bg-[#EF6F6C]" },
 ];
 
 const mainPrograms = [
   {
-    title: "Programi Mujor",
+    title: "Programi veror STEM",
     subtitle: "Gjatë gjithë muajit Korrik",
     color: "bg-[#009FE3]",
     icon: "📚",
-    image: "/images/pic1.jpg",
+    image: "/images/pic10.jpg",
     description:
       "Program edukativ dhe argëtues gjatë gjithë muajit Korrik, nga e Hëna deri të Premten, me nga 2 orë aktivitete në ditë.",
     details: [
       "E Hënë – E Premte",
       "2 orë në ditë",
-      "Gjatë gjithë muajit Korrik",
+      "1 Korrik - 31 Korrik ",
       "Për moshat 4–15 vjeç",
     ],
     price: "79€",
@@ -66,14 +66,14 @@ const mainPrograms = [
     subtitle: "6 Korrik – 17 Korrik",
     color: "bg-[#78BE20]",
     icon: "🏕️",
-    image: "/images/stem-camp.png",
+    image: "/images/pic5.jpg",
     description:
       "Kamp tërëditor ku fëmijët përfshihen në aktivitete praktike, edukative dhe eksploruese prej mëngjesit deri pasdite.",
     details: [
       "6 Korrik – 17 Korrik",
       "08:30 – 16:30",
       "Robotikë, AI, Kodim, Science",
-      "Eksplorim i natyrës",
+      "Për moshat 4–15 vjeç",
     ],
     price: "119€/javë",
     discountPrice: "99€/javë",
@@ -126,7 +126,7 @@ const planPrograms: PlanProgram[] = [
   },
   {
     icon: "🖨️",
-    color: "bg-[#E30613]",
+    color: "bg-[#EF6F6C]",
     title: "3D Design & Print",
     image: "/images/pic10.jpg",
     description:
@@ -180,9 +180,9 @@ const faqs = [
       "Programi është për fëmijë të moshave 4–15 vjeç. Aktivitetet përshtaten sipas moshës dhe nivelit të fëmijëve.",
   },
   {
-    question: "Sa zgjat programi mujor?",
+    question: "Sa zgjat programi veror STEM?",
     answer:
-      "Programi mujor mbahet gjatë gjithë muajit Korrik, nga e Hëna deri të Premten, me nga 2 orë aktivitete në ditë.",
+      "Programi veror STEM mbahet gjatë gjithë muajit Korrik, nga e Hëna deri të Premten, me nga 2 orë aktivitete në ditë.",
   },
   {
     question: "Kur mbahet kampi tërëditor?",
@@ -197,7 +197,7 @@ const faqs = [
   {
     question: "Si mund të regjistrohem?",
     answer:
-      "Mund të klikoni butonin 'Regjistrohu tani' ose të na shkruani direkt në WhatsApp për më shumë informata.",
+      "Mund të klikoni butonin 'Regjistrohu tani' ose të na shkruani direkt në WhatsApp/Viber për më shumë informata.",
   },
 ];
 
@@ -248,7 +248,6 @@ function App() {
       <Navbar onOpenRegistration={openRegistrationForm} />
       <Hero />
       <TechCarousel />
-      <DiscountCountdown onOpenRegistration={openRegistrationForm} />
       <About />
 
       <Programs
@@ -325,11 +324,10 @@ function BackgroundShapes({
       <div className="absolute -left-20 top-1/3 h-56 w-56 rounded-full bg-[#009FE3]/10 blur-3xl sm:h-72 sm:w-72" />
       <div className="absolute -right-20 bottom-1/4 h-56 w-56 rounded-full bg-[#F6C400]/20 blur-3xl sm:h-72 sm:w-72" />
       <div className="absolute left-1/3 bottom-0 h-44 w-44 rounded-full bg-[#78BE20]/10 blur-3xl sm:h-56 sm:w-56" />
-      <div className="absolute right-1/3 top-1/3 h-40 w-40 rounded-full bg-[#E30613]/10 blur-3xl sm:h-52 sm:w-52" />
+      <div className="absolute right-1/3 top-1/3 h-40 w-40 rounded-full bg-[#EF6F6C]/10 blur-3xl sm:h-52 sm:w-52" />
     </div>
   );
 }
-
 function Navbar({
   onGoHome,
   onOpenRegistration,
@@ -353,13 +351,13 @@ function Navbar({
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+      <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
         <a
           href="#"
           onClick={handleLogoClick}
-          className="flex min-w-0 items-center gap-3"
+          className="flex flex-1 items-center gap-6"
         >
-          <div className="h-14 w-14 shrink-0 sm:h-20 sm:w-20">
+          <div className="h-16 w-16 shrink-0 sm:h-24 sm:w-24 lg:h-28 lg:w-28 xl:h-32 xl:w-32">
             <img
               src="/images/logo.jpg"
               alt="Young Engineers Prishtina"
@@ -368,30 +366,31 @@ function Navbar({
           </div>
 
           <div className="min-w-0">
-            <p className="truncate text-sm font-black leading-none sm:text-lg">
-              Young Engineers Prishtina
-            </p>
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#009FE3] sm:text-xs">
-              Summer School 2026
-            </p>
+          <p className="whitespace-nowrap text-xl font-black leading-tight text-[#1F2933] sm:text-2xl lg:text-3xl xl:text-3xl">
+  Young Engineers Prishtina
+</p>
+
+<p className="mt-2 whitespace-nowrap text-lg font-black uppercase leading-tight tracking-wide text-[#009FE3] sm:text-xl lg:text-2xl xl:text-2xl">
+  Summer School 2026
+</p>
           </div>
         </a>
 
         <button
           type="button"
           onClick={() => setIsMenuOpen((current) => !current)}
-          className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-2xl font-black text-[#1F2933] shadow-sm md:hidden"
+          className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-2xl font-black text-[#1F2933] shadow-sm md:hidden"
           aria-label="Open menu"
         >
           {isMenuOpen ? "×" : "☰"}
         </button>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden shrink-0 items-center gap-6 md:flex xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-semibold text-slate-600 hover:text-[#009FE3]"
+              className="text-base font-bold text-slate-600 transition hover:text-[#009FE3]"
             >
               {link.label}
             </a>
@@ -401,7 +400,7 @@ function Navbar({
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-black text-white shadow-md transition hover:bg-[#1db954]"
+            className="rounded-full bg-[#25D366] px-6 py-3 text-base font-black text-white shadow-lg transition hover:bg-[#1db954]"
           >
             WhatsApp
           </a>
@@ -409,9 +408,9 @@ function Navbar({
           <button
             type="button"
             onClick={onOpenRegistration}
-            className="rounded-full bg-[#009FE3] px-5 py-2.5 text-sm font-black text-white shadow-md transition hover:bg-[#0087c2]"
+            className="rounded-full bg-[#009FE3] px-6 py-3 text-base font-black text-white shadow-lg transition hover:bg-[#0087c2]"
           >
-            Register Now
+            Regjistrohu tani
           </button>
         </div>
       </nav>
@@ -447,7 +446,7 @@ function Navbar({
               }}
               className="rounded-2xl bg-[#009FE3] px-4 py-3 text-center text-sm font-black text-white"
             >
-              Register Now
+              Regjisitrohu tani 
             </button>
           </div>
         </div>
@@ -455,14 +454,13 @@ function Navbar({
     </header>
   );
 }
-
 function FloatingHeroElements() {
   return (
     <>
       <div className="float-element absolute left-8 top-28 hidden h-20 w-20 rounded-full bg-[#009FE3]/15 md:block" />
       <div className="float-element-slow absolute right-16 top-32 hidden h-28 w-28 rounded-full bg-[#78BE20]/15 md:block" />
       <div className="float-element-fast absolute bottom-20 left-1/3 hidden h-16 w-16 rounded-full bg-[#F6C400]/25 md:block" />
-      <div className="float-element absolute bottom-28 right-1/4 hidden h-14 w-14 rounded-full bg-[#E30613]/15 md:block" />
+      <div className="float-element absolute bottom-28 right-1/4 hidden h-14 w-14 rounded-full bg-[#EF6F6C]/15 md:block" />
 
       <div className="float-element absolute left-12 bottom-24 hidden rotate-12 rounded-3xl bg-white p-4 text-3xl shadow-xl md:block">
         💻
@@ -515,7 +513,7 @@ function Hero() {
           <div className="mt-10 grid max-w-lg grid-cols-3 gap-3 sm:gap-4">
             <Stat number="Korrik" label="Programi" color="text-[#009FE3]" />
             <Stat number="4–15" label="Mosha" color="text-[#78BE20]" />
-            <Stat number="59€" label="Prej" color="text-[#E30613]" />
+            <Stat number="Early Bird" label="Oferta" color="text-[#EF6F6C]" />
           </div>
         </div>
 
@@ -602,7 +600,7 @@ function HeroPhotoAlbum() {
         ⚙️
       </div>
 
-      <div className="float-element-fast absolute -right-4 bottom-24 hidden rounded-full bg-[#E30613] p-4 text-2xl shadow-xl sm:block">
+      <div className="float-element-fast absolute -right-4 bottom-24 hidden rounded-full bg-[#EF6F6C] p-4 text-2xl shadow-xl sm:block">
         🚀
       </div>
     </div>
@@ -636,139 +634,6 @@ function TechCarousel() {
   );
 }
 
-function DiscountCountdown({
-  onOpenRegistration,
-}: {
-  onOpenRegistration: () => void;
-}) {
-  const discountEndDate = useMemo(
-    () => new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
-    []
-  );
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: "00",
-    hours: "00",
-    minutes: "00",
-    seconds: "00",
-  });
-
-  useEffect(() => {
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = discountEndDate - now;
-
-      if (distance <= 0) {
-        setTimeLeft({
-          days: "00",
-          hours: "00",
-          minutes: "00",
-          seconds: "00",
-        });
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      setTimeLeft({
-        days: String(days).padStart(2, "0"),
-        hours: String(hours).padStart(2, "0"),
-        minutes: String(minutes).padStart(2, "0"),
-        seconds: String(seconds).padStart(2, "0"),
-      });
-    }
-
-    updateCountdown();
-
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
-  }, [discountEndDate]);
-
-  return (
-    <section className="relative overflow-hidden bg-[#1F2933] px-4 py-8 text-white sm:px-6">
-      <BackgroundShapes variant="red" />
-
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
-        <div>
-          <div className="inline-flex rounded-full bg-[#E30613] px-4 py-2 text-sm font-black text-white">
-            Early Bird Discount
-          </div>
-
-          <h2 className="mt-3 text-2xl font-black md:text-3xl">
-            Zbritje për regjistrimet e hershme
-          </h2>
-
-          <p className="mt-1 text-sm leading-6 text-white/70 sm:text-base">
-            Përfito zbritje deri në 25% për regjistrimet e hershme në programin
-            mujor dhe kampin tërëditor.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
-          <CountdownBox
-            number={timeLeft.days}
-            label="Ditë"
-            color="bg-[#009FE3]"
-          />
-          <CountdownBox
-            number={timeLeft.hours}
-            label="Orë"
-            color="bg-[#78BE20]"
-          />
-          <CountdownBox
-            number={timeLeft.minutes}
-            label="Min"
-            color="bg-[#F6C400]"
-          />
-          <CountdownBox
-            number={timeLeft.seconds}
-            label="Sek"
-            color="bg-[#E30613]"
-          />
-        </div>
-
-        <button
-          type="button"
-          onClick={onOpenRegistration}
-          className="w-full rounded-full bg-[#F6C400] px-8 py-4 text-center font-black text-[#1F2933] shadow-lg transition hover:bg-yellow-300 sm:w-auto"
-        >
-          Rezervo tani
-        </button>
-      </div>
-    </section>
-  );
-}
-
-function CountdownBox({
-  number,
-  label,
-  color,
-}: {
-  number: string;
-  label: string;
-  color: string;
-}) {
-  return (
-    <div className="rounded-2xl bg-white/10 p-3">
-      <div
-        className={`grid h-14 w-14 place-items-center rounded-xl ${color} text-xl font-black text-white sm:h-16 sm:w-16 sm:text-2xl`}
-      >
-        {number}
-      </div>
-
-      <p className="mt-2 text-xs font-black uppercase text-white/60">{label}</p>
-    </div>
-  );
-}
-
 function About() {
   return (
     <section
@@ -779,7 +644,7 @@ function About() {
 
       <div className="relative grid gap-8 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:p-12">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#EF6F6C]">
             About us
           </p>
 
@@ -880,7 +745,7 @@ function PlanProgramsPage({
             <button
               type="button"
               onClick={() => setSelectedProgram(null)}
-              className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-xl font-black text-slate-700 transition hover:bg-[#E30613] hover:text-white sm:right-5 sm:top-5 sm:h-11 sm:w-11"
+              className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-xl font-black text-slate-700 transition hover:bg-[#EF6F6C] hover:text-white sm:right-5 sm:top-5 sm:h-11 sm:w-11"
               aria-label="Mbyll"
             >
               ×
@@ -937,7 +802,7 @@ function PlanProgramsPage({
                   <button
                     type="button"
                     onClick={handleProgramRegistration}
-                    className="rounded-full bg-[#E30613] px-7 py-4 text-center font-black text-white transition hover:bg-red-700"
+                    className="rounded-full bg-[#EF6F6C] px-7 py-4 text-center font-black text-white transition hover:bg-red-700"
                   >
                     Regjistrohu tani
                   </button>
@@ -1123,7 +988,7 @@ function ProgramCard({
           </p>
 
           <div className="mt-2 flex flex-wrap items-end gap-3">
-            <p className="text-2xl font-black text-[#E30613] sm:text-3xl">
+            <p className="text-2xl font-black text-[#EF6F6C] sm:text-3xl">
               {discountPrice}
             </p>
 
@@ -1149,14 +1014,13 @@ function ProgramCard({
             onClick={onOpenProgramsPage}
             className="block rounded-full border-2 border-[#009FE3] bg-white px-5 py-3 text-center text-sm font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white"
           >
-            Programet
+            Detaje rreth programeve
           </button>
         </div>
       </div>
     </div>
   );
 }
-
 function Gallery() {
   const [activeImage, setActiveImage] = useState(0);
 
@@ -1191,12 +1055,12 @@ function Gallery() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#EF6F6C]">
             Gallery
           </p>
 
-          <h2 className="mt-4 text-3xl font-black sm:text-4xl lg:text-5xl">
-            Momente nga aktivitetet
+          <h2 className="mt-4 text-3xl font-black sm:text-4xl lg:text-4xl">
+            Momente nga kampet e kaluara
           </h2>
         </div>
 
@@ -1243,7 +1107,7 @@ function Gallery() {
 
             <div className="flex flex-col justify-between rounded-[2rem] bg-slate-50 p-5 sm:p-6">
               <div>
-                <div className="inline-flex rounded-full bg-white px-4 py-2 text-sm font-black text-[#E30613] shadow-sm">
+                <div className="inline-flex rounded-full bg-white px-4 py-2 text-sm font-black text-[#EF6F6C] shadow-sm">
                   Aktiviteti {activeImage + 1} / {galleryImages.length}
                 </div>
 
@@ -1341,7 +1205,7 @@ function FAQ() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#EF6F6C]">
             FAQ
           </p>
 
@@ -1389,7 +1253,7 @@ function Register({
 
         <div className="relative grid gap-8 p-5 sm:p-8 lg:grid-cols-2 lg:p-12">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.3em] text-[#E30613]">
+            <p className="text-sm font-black uppercase tracking-[0.3em] text-[#EF6F6C]">
               Registration
             </p>
 
@@ -1399,7 +1263,7 @@ function Register({
 
             <p className="mt-5 text-base leading-7 sm:text-lg sm:leading-8">
               Plotëso formën e regjistrimit dhe rezervo vendin për programin
-              mujor ose kampin tërëditor.
+              veror STEM ose kampin tërëditor.
             </p>
 
             <a
@@ -1415,7 +1279,7 @@ function Register({
           <div className="rounded-[2rem] bg-white p-5 shadow-sm sm:p-6">
             <div className="space-y-4">
               <InfoRow label="Mosha" value="4–15 vjeç" />
-              <InfoRow label="Programi mujor" value="Korrik · 2 orë/ditë" />
+              <InfoRow label="Programi veror STEM" value="Korrik · 2 orë/ditë" />
               <InfoRow label="Kampi tërëditor" value="6–17 Korrik" />
               <InfoRow label="Orari i kampit" value="08:30 – 16:30" />
               <InfoRow label="Çmimi mujor" value="59€ early bird" />
@@ -1425,7 +1289,7 @@ function Register({
             <button
               type="button"
               onClick={onOpenRegistration}
-              className="mt-8 block w-full rounded-full bg-[#E30613] px-8 py-4 text-center font-black text-white transition hover:bg-red-700"
+              className="mt-8 block w-full rounded-full bg-[#EF6F6C] px-8 py-4 text-center font-black text-white transition hover:bg-red-700"
             >
               Hap formën e regjistrimit
             </button>
@@ -1481,14 +1345,14 @@ function Contact() {
                 color="border-[#78BE20]"
               />
               <ContactCard
-                title="WhatsApp"
+                title="WhatsApp/Viber"
                 value="+383 48 108 128"
                 color="border-[#25D366]"
               />
               <ContactCard
                 title="Location"
                 value="Prishtina, Kosovo"
-                color="border-[#E30613]"
+                color="border-[#EF6F6C]"
               />
             </div>
           </div>
@@ -1545,7 +1409,7 @@ function WhatsAppFloat() {
       target="_blank"
       rel="noreferrer"
       className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-2xl text-white shadow-2xl sm:bottom-6 sm:right-6 sm:h-16 sm:w-16 sm:text-3xl"
-      aria-label="Write on WhatsApp"
+      aria-label="Shkruaj në WhatsApp"
     >
       💬
     </a>
@@ -1562,7 +1426,7 @@ function Footer() {
           <span className="h-3 w-3 rounded-full bg-[#009FE3]" />
           <span className="h-3 w-3 rounded-full bg-[#78BE20]" />
           <span className="h-3 w-3 rounded-full bg-[#F6C400]" />
-          <span className="h-3 w-3 rounded-full bg-[#E30613]" />
+          <span className="h-3 w-3 rounded-full bg-[#EF6F6C]" />
         </div>
       </div>
     </footer>
@@ -1594,7 +1458,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
     phone: "",
     childName: "",
     childAge: "",
-    program: "Programi Mujor",
+    program: "Programi veror STEM",
     message: "",
   });
 
@@ -1637,7 +1501,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
       phone: "",
       childName: "",
       childAge: "",
-      program: "Programi Mujor",
+      program: "Programi veror STEM",
       message: "",
     });
 
@@ -1650,12 +1514,12 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#1F2933]/60 px-3 py-5 backdrop-blur-sm sm:px-4 sm:py-8">
       <div className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white shadow-2xl sm:rounded-[2.5rem]">
-        <div className="h-4 bg-[#E30613]" />
+        <div className="h-4 bg-[#EF6F6C]" />
 
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-xl font-black text-slate-700 transition hover:bg-[#E30613] hover:text-white sm:right-5 sm:top-5 sm:h-11 sm:w-11"
+          className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-xl font-black text-slate-700 transition hover:bg-[#EF6F6C] hover:text-white sm:right-5 sm:top-5 sm:h-11 sm:w-11"
           aria-label="Mbyll formën"
         >
           ×
@@ -1667,7 +1531,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
               🚀
             </div>
 
-            <p className="mt-6 text-xs font-black uppercase tracking-[0.25em] text-[#E30613] sm:text-sm sm:tracking-[0.3em]">
+            <p className="mt-6 text-xs font-black uppercase tracking-[0.25em] text-[#EF6F6C] sm:text-sm sm:tracking-[0.3em]">
               Registration
             </p>
 
@@ -1758,7 +1622,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
                 onChange={handleChange}
                 className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold outline-none transition focus:border-[#009FE3] focus:bg-white"
               >
-                <option>Programi Mujor</option>
+                <option>Programi veror STEM</option>
                 <option>Kampi Tërëditor</option>
                 <option>Ende nuk jam i/e sigurt</option>
               </select>
@@ -1789,7 +1653,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
 
               <button
                 type="submit"
-                className="rounded-full bg-[#E30613] px-6 py-4 text-center font-black text-white transition hover:bg-red-700"
+                className="rounded-full bg-[#EF6F6C] px-6 py-4 text-center font-black text-white transition hover:bg-red-700"
               >
                 Dërgo regjistrimin
               </button>
