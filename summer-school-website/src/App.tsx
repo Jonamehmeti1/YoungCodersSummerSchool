@@ -6,7 +6,8 @@ import {
 } from "react";
 
 const WHATSAPP_LINK = "https://wa.me/38348108128";
-const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwiXTSXiuef3ySqucI8OAnxwNcTUrS_9rbWhdJAIwvxhYBVJWXjb6xBGpOYne3Us3pkKA/exec";
+const GOOGLE_SHEET_WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbwiXTSXiuef3ySqucI8OAnxwNcTUrS_9rbWhdJAIwvxhYBVJWXjb6xBGpOYne3Us3pkKA/exec";
 
 type Page = "home" | "programs";
 
@@ -21,13 +22,12 @@ type PlanProgram = {
 
 const heroAlbumImages = [
   "/images/pic13.jpg",
-   "/images/hero-kids.png",
+  "/images/hero-kids.png",
   "/images/pic2.jpg",
   "/images/pic4.jpg",
   "/images/foto2.PNG",
   "/images/foto3.PNG",
-  "/images/fotoja.png"
-
+  "/images/fotoja.png",
 ];
 
 const carouselItems = [
@@ -53,7 +53,7 @@ const mainPrograms = [
     details: [
       "E Hënë – E Premte",
       "2 orë në ditë",
-      "1 Korrik - 31 Korrik ",
+      "1 Korrik - 31 Korrik",
       "Për moshat 4–15 vjeç",
     ],
     price: "79€",
@@ -82,59 +82,59 @@ const mainPrograms = [
 
 const planPrograms: PlanProgram[] = [
   {
-    icon: "🤖",
+    icon: "💻",
     color: "bg-[#009FE3]",
-    title: "Robotikë & Inxhinieri",
+    title: "Coding for Kids",
     image: "/images/pic1.jpg",
     description:
-      "Fëmijët mësojnë si funksionojnë robotët, mekanizmat dhe sistemet inxhinierike përmes ndërtimit dhe testimit praktik.",
+      "Students learn coding basics through games, animations, logic challenges, and creative digital projects.",
     fullDetails: [
-      "Fëmijët njihen me konceptet bazë të robotikës përmes aktiviteteve praktike dhe të kuptueshme për moshën e tyre.",
-      "Ata ndërtojnë modele, testojnë si funksionojnë pjesët mekanike dhe mësojnë pse një strukturë duhet të jetë e qëndrueshme.",
-      "Përmes sfidave ekipore, fëmijët mësojnë të provojnë, të gabojnë, të përmirësojnë dhe të gjejnë zgjidhje kreative.",
-      "Ky modul zhvillon mendimin logjik, durimin, bashkëpunimin dhe aftësinë për të zgjidhur probleme reale.",
+      "Fëmijët mësojnë bazat e kodimit përmes aktiviteteve praktike dhe lojërave logjike.",
+      "Ata kuptojnë se programimi është dhënie e udhëzimeve hap pas hapi për kompjuterin.",
+      "Përmes animimeve dhe projekteve kreative, fëmijët zhvillojnë mendimin algoritmik.",
+      "Ky modul është i përshtatshëm për fillestarë dhe e bën kodimin të lehtë e argëtues.",
     ],
   },
   {
-    icon: "💻",
+    icon: "🧩",
     color: "bg-[#78BE20]",
-    title: "AI & Kodim",
+    title: "STEM & Engineering",
     image: "/images/fotoja.png",
     description:
-      "Nxënësit njihen me kodimin dhe konceptet bazë të inteligjencës artificiale në mënyrë të thjeshtë, argëtuese dhe praktike.",
+      "Hands-on activities where students build, test, solve problems, and understand how technology works.",
     fullDetails: [
-      "Fëmijët mësojnë bazat e kodimit përmes shembujve të thjeshtë, lojërave logjike dhe aktiviteteve kreative.",
-      "Ata kuptojnë se programimi është dhënie e udhëzimeve hap pas hapi për kompjuterin.",
-      "Në pjesën e AI, fëmijët njihen me idenë se si kompjuteri mund të mësojë nga të dhënat dhe të marrë vendime.",
-      "Qëllimi nuk është vetëm të shkruajnë kod, por të zhvillojnë mendim algoritmik dhe kreativ.",
+      "Fëmijët njihen me konceptet bazë të STEM përmes ndërtimit dhe testimit praktik.",
+      "Ata mësojnë si funksionojnë mekanizmat, strukturat dhe zgjidhjet inxhinierike.",
+      "Përmes sfidave ekipore, fëmijët mësojnë të provojnë, të gabojnë dhe të përmirësojnë.",
+      "Ky modul zhvillon mendimin logjik, kreativitetin dhe bashkëpunimin.",
     ],
   },
   {
-    icon: "🧪",
+    icon: "🤖",
     color: "bg-[#F6C400]",
-    title: "Science Experiments",
+    title: "AI & Smart Tech",
     image: "/images/pic11.jpg",
     description:
-      "Fëmijët eksplorojnë shkencën përmes eksperimenteve të sigurta, vëzhgimit dhe diskutimit.",
+      "A beginner-friendly introduction to artificial intelligence, prompts, smart tools, and digital safety.",
     fullDetails: [
-      "Ky modul i ndihmon fëmijët ta shohin shkencën si diçka praktike dhe argëtuese.",
-      "Fëmijët marrin pjesë në eksperimente të thjeshta dhe të sigurta, ku vëzhgojnë çfarë ndodh dhe pse ndodh.",
-      "Ata mësojnë të bëjnë pyetje, të parashikojnë rezultate dhe të diskutojnë përfundimet.",
-      "Moduli zhvillon kuriozitetin, vëmendjen dhe mënyrën shkencore të të menduarit.",
+      "Fëmijët njihen me konceptet bazë të inteligjencës artificiale në mënyrë të thjeshtë.",
+      "Ata mësojnë çka janë prompt-et dhe si përdoren smart tools në mënyrë kreative.",
+      "Diskutohet siguria digjitale dhe mënyra e përdorimit të përgjegjshëm të teknologjisë.",
+      "Qëllimi është që fëmijët ta kuptojnë AI si mjet ndihmës dhe kreativ.",
     ],
   },
   {
-    icon: "🖨️",
+    icon: "🎮",
     color: "bg-[#EF6F6C]",
-    title: "3D Design & Print",
+    title: "Game Design",
     image: "/images/pic10.jpg",
     description:
-      "Fëmijët mësojnë si idetë digjitale mund të kthehen në modele dhe objekte reale përmes dizajnit 3D.",
+      "Students design simple games while learning creativity, teamwork, problem solving, and presentation skills.",
     fullDetails: [
-      "Fëmijët njihen me konceptin e dizajnit 3D dhe mënyrën si krijohen objektet në hapësirë digjitale.",
-      "Ata mësojnë si një ide mund të shndërrohet në model dhe pastaj në objekt real.",
-      "Ky modul i ndihmon fëmijët të kuptojnë format, madhësitë, strukturën dhe procesin kreativ.",
-      "Aktiviteti zhvillon imagjinatën, kreativitetin dhe mendimin hapësinor.",
+      "Fëmijët mësojnë si ndërtohet një ide e thjeshtë për lojë dhe si kthehet në projekt.",
+      "Ata zhvillojnë mini-games, punojnë me storytelling dhe mendojnë për rregullat e lojës.",
+      "Përmes prezantimit të projekteve, ata ndërtojnë vetëbesim dhe aftësi komunikimi.",
+      "Ky modul kombinon kreativitetin, logjikën dhe punën në grup.",
     ],
   },
 ];
@@ -169,8 +169,6 @@ const galleryImages = [
   "/images/foto3.PNG",
   "/images/fotoja.png",
 ];
-
-
 
 const faqs = [
   {
@@ -256,7 +254,6 @@ function App() {
 
       <Gallery />
       <WhyJoin />
-     
       <FAQ />
       <Register onOpenRegistration={openRegistrationForm} />
       <Contact />
@@ -327,6 +324,7 @@ function BackgroundShapes({
     </div>
   );
 }
+
 function Navbar({
   onGoHome,
   onOpenRegistration,
@@ -365,13 +363,13 @@ function Navbar({
           </div>
 
           <div className="min-w-0">
-          <p className="whitespace-nowrap text-xl font-black leading-tight text-[#1F2933] sm:text-2xl lg:text-3xl xl:text-3xl">
-  Young Engineers Prishtina
-</p>
+            <p className="whitespace-nowrap text-xl font-black leading-tight text-[#1F2933] sm:text-2xl lg:text-3xl xl:text-3xl">
+              Young Engineers Prishtina
+            </p>
 
-<p className="mt-2 whitespace-nowrap text-lg font-black uppercase leading-tight tracking-wide text-[#009FE3] sm:text-xl lg:text-2xl xl:text-2xl">
-  Summer School 2026
-</p>
+            <p className="mt-2 whitespace-nowrap text-lg font-black uppercase leading-tight tracking-wide text-[#009FE3] sm:text-xl lg:text-2xl xl:text-2xl">
+              Summer School 2026
+            </p>
           </div>
         </a>
 
@@ -445,7 +443,7 @@ function Navbar({
               }}
               className="rounded-2xl bg-[#009FE3] px-4 py-3 text-center text-sm font-black text-white"
             >
-              Regjisitrohu tani 
+              Regjistrohu tani
             </button>
           </div>
         </div>
@@ -453,6 +451,7 @@ function Navbar({
     </header>
   );
 }
+
 function FloatingHeroElements() {
   return (
     <>
@@ -681,195 +680,6 @@ function About() {
   );
 }
 
-function PlanProgramsPage({
-  onBack,
-  onOpenRegistration,
-}: {
-  onBack: () => void;
-  onOpenRegistration: () => void;
-}) {
-  const [selectedProgram, setSelectedProgram] = useState<PlanProgram | null>(
-    null
-  );
-
-  function handleProgramRegistration() {
-    setSelectedProgram(null);
-    onOpenRegistration();
-  }
-
-  return (
-    <section className="relative min-h-screen overflow-hidden bg-slate-50 py-14 text-[#1F2933] sm:py-20">
-      <BackgroundShapes variant="mixed" />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <button
-          type="button"
-          onClick={onBack}
-          className="mb-8 rounded-full border-2 border-[#009FE3] bg-white px-5 py-3 text-sm font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white sm:px-6"
-        >
-          ← Kthehu te faqja kryesore
-        </button>
-
-        <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#009FE3]">
-            Planprogramet
-          </p>
-
-          <h1 className="mt-4 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-            Çka përfshihet në programet tona?
-          </h1>
-
-          <p className="mt-6 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-            Këtu mund të shihni më shumë detaje rreth aktiviteteve që fëmijët
-            do t’i zhvillojnë gjatë Summer School 2026.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-5 sm:mt-14 lg:grid-cols-2 lg:gap-6">
-          {planPrograms.map((program) => (
-            <PlanProgramCard
-              key={program.title}
-              {...program}
-              onLearnMore={() => setSelectedProgram(program)}
-            />
-          ))}
-        </div>
-      </div>
-
-      {selectedProgram && (
-        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#1F2933]/60 px-3 py-5 backdrop-blur-sm sm:px-4 sm:py-8">
-          <div className="relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white shadow-2xl sm:rounded-[2.5rem]">
-            <div className={`h-4 ${selectedProgram.color}`} />
-
-            <button
-              type="button"
-              onClick={() => setSelectedProgram(null)}
-              className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-xl font-black text-slate-700 transition hover:bg-[#EF6F6C] hover:text-white sm:right-5 sm:top-5 sm:h-11 sm:w-11"
-              aria-label="Mbyll"
-            >
-              ×
-            </button>
-
-            <div className="grid gap-6 p-5 sm:p-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:p-10">
-              <div className="overflow-hidden rounded-[2rem] bg-slate-100">
-                <img
-                  src={selectedProgram.image}
-                  alt={selectedProgram.title}
-                  className="h-[240px] w-full object-cover sm:h-[320px] lg:h-full lg:min-h-[360px]"
-                />
-              </div>
-
-              <div>
-                <div
-                  className={`grid h-16 w-16 place-items-center rounded-3xl ${selectedProgram.color} text-3xl sm:h-20 sm:w-20 sm:text-4xl`}
-                >
-                  {selectedProgram.icon}
-                </div>
-
-                <p className="mt-6 text-xs font-black uppercase tracking-[0.25em] text-[#009FE3] sm:text-sm sm:tracking-[0.3em]">
-                  Detajet e planprogramit
-                </p>
-
-                <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
-                  {selectedProgram.title}
-                </h2>
-
-                <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-                  {selectedProgram.description}
-                </p>
-
-                <div className="mt-7 grid gap-3">
-                  {selectedProgram.fullDetails.map((detail) => (
-                    <div
-                      key={detail}
-                      className="rounded-2xl bg-slate-50 px-4 py-3 text-sm font-bold leading-6 text-slate-600 sm:px-5 sm:py-4 sm:leading-7"
-                    >
-                      ✅ {detail}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedProgram(null)}
-                    className="rounded-full border-2 border-[#009FE3] bg-white px-7 py-4 text-center font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white"
-                  >
-                    ← Kthehu mbrapa
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleProgramRegistration}
-                    className="rounded-full bg-[#EF6F6C] px-7 py-4 text-center font-black text-white transition hover:bg-red-700"
-                  >
-                    Regjistrohu tani
-                  </button>
-
-                  <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full bg-[#25D366] px-7 py-4 text-center font-black text-white transition hover:bg-[#1db954]"
-                  >
-                    Pyet në WhatsApp
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
-  );
-}
-
-function PlanProgramCard({
-  icon,
-  color,
-  title,
-  image,
-  description,
-  onLearnMore,
-}: PlanProgram & { onLearnMore: () => void }) {
-  return (
-    <div className="card-hover group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
-      <div className={`h-3 ${color}`} />
-
-      <div className="h-40 overflow-hidden sm:h-48 lg:h-52">
-        <img
-          src={image}
-          alt={title}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-        />
-      </div>
-
-      <div className="p-5 sm:p-6">
-        <div
-          className={`grid h-12 w-12 place-items-center rounded-2xl ${color} text-2xl sm:h-14 sm:w-14 sm:text-3xl`}
-        >
-          {icon}
-        </div>
-
-        <h3 className="mt-4 text-lg font-black sm:text-xl">{title}</h3>
-
-        <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-sm sm:leading-7">
-          {description}
-        </p>
-
-        
-        <button
-          type="button"
-          onClick={onLearnMore}
-          className="mt-5 w-full rounded-full bg-[#009FE3] px-6 py-3 text-center text-sm font-black text-white transition hover:bg-[#0087c2]"
-        >
-          Mëso më shumë
-        </button>
-      </div>
-    </div>
-  );
-}
-
 function Programs({
   onOpenProgramsPage,
   onOpenRegistration,
@@ -1020,6 +830,228 @@ function ProgramCard({
     </div>
   );
 }
+
+function PlanProgramsPage({
+  onBack,
+  onOpenRegistration,
+}: {
+  onBack: () => void;
+  onOpenRegistration: () => void;
+}) {
+  const [selectedProgram, setSelectedProgram] = useState<PlanProgram | null>(
+    null
+  );
+
+  function handleProgramRegistration() {
+    setSelectedProgram(null);
+    onOpenRegistration();
+  }
+
+  return (
+    <section className="relative min-h-screen overflow-hidden bg-slate-50 py-14 text-[#1F2933] sm:py-20">
+      <BackgroundShapes variant="mixed" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <button
+          type="button"
+          onClick={onBack}
+          className="mb-8 rounded-full border-2 border-[#009FE3] bg-white px-5 py-3 text-sm font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white sm:px-6"
+        >
+          ← Kthehu te faqja kryesore
+        </button>
+
+        <div className="max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#009FE3]">
+            Planprogramet
+          </p>
+
+          <h1 className="mt-4 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+            Summer School Programs
+          </h1>
+
+          <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+            Each program is beginner-friendly, practical, and designed to make
+            learning exciting.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+          {planPrograms.map((program) => (
+            <PlanProgramCard
+              key={program.title}
+              {...program}
+              onLearnMore={() => setSelectedProgram(program)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {selectedProgram && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#1F2933]/60 px-3 py-5 backdrop-blur-sm sm:px-4 sm:py-8">
+          <div className="relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white shadow-2xl sm:rounded-[2.5rem]">
+            <div className={`h-4 ${selectedProgram.color}`} />
+
+            <button
+              type="button"
+              onClick={() => setSelectedProgram(null)}
+              className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-xl font-black text-slate-700 transition hover:bg-[#EF6F6C] hover:text-white sm:right-5 sm:top-5 sm:h-11 sm:w-11"
+              aria-label="Mbyll"
+            >
+              ×
+            </button>
+
+            <div className="grid gap-6 p-5 sm:p-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:p-10">
+              <div className="overflow-hidden rounded-[2rem] bg-slate-100">
+                <img
+                  src={selectedProgram.image}
+                  alt={selectedProgram.title}
+                  className="h-[240px] w-full object-cover sm:h-[320px] lg:h-full lg:min-h-[360px]"
+                />
+              </div>
+
+              <div>
+                <div
+                  className={`grid h-16 w-16 place-items-center rounded-3xl ${selectedProgram.color} text-3xl sm:h-20 sm:w-20 sm:text-4xl`}
+                >
+                  {selectedProgram.icon}
+                </div>
+
+                <p className="mt-6 text-xs font-black uppercase tracking-[0.25em] text-[#009FE3] sm:text-sm sm:tracking-[0.3em]">
+                  Detajet e planprogramit
+                </p>
+
+                <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                  {selectedProgram.title}
+                </h2>
+
+                <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                  {selectedProgram.description}
+                </p>
+
+                <div className="mt-7 grid gap-3">
+                  {selectedProgram.fullDetails.map((detail) => (
+                    <div
+                      key={detail}
+                      className="rounded-2xl bg-slate-50 px-4 py-3 text-sm font-bold leading-6 text-slate-600 sm:px-5 sm:py-4 sm:leading-7"
+                    >
+                      ✅ {detail}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProgram(null)}
+                    className="rounded-full border-2 border-[#009FE3] bg-white px-7 py-4 text-center font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white"
+                  >
+                    ← Kthehu mbrapa
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleProgramRegistration}
+                    className="rounded-full bg-[#EF6F6C] px-7 py-4 text-center font-black text-white transition hover:bg-[#E85B58]"
+                  >
+                    Regjistrohu tani
+                  </button>
+
+                  <a
+                    href={WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full bg-[#25D366] px-7 py-4 text-center font-black text-white transition hover:bg-[#1db954]"
+                  >
+                    Pyet në WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function PlanProgramCard({
+  icon,
+  color,
+  title,
+  image,
+  description,
+}: PlanProgram & { onLearnMore: () => void }) {
+  const programInfo: Record<string, { age: string; bullets: string[] }> = {
+    "Coding for Kids": {
+      age: "AGES 7–12",
+      bullets: ["Logic games", "Animations", "Creative projects"],
+    },
+    "STEM & Engineering": {
+      age: "AGES 6–12",
+      bullets: ["Build & test", "Problem solving", "Team challenges"],
+    },
+    "AI & Smart Tech": {
+      age: "AGES 9–14",
+      bullets: ["AI basics", "Prompting", "Digital safety"],
+    },
+    "Game Design": {
+      age: "AGES 8–14",
+      bullets: ["Mini games", "Story design", "Presentations"],
+    },
+  };
+
+  const info = programInfo[title] ?? {
+    age: "AGES 4–15",
+    bullets: ["Creative projects", "Practical learning", "Team work"],
+  };
+
+  return (
+    <div className="flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div className={`h-3 ${color}`} />
+
+      <div className="h-40 overflow-hidden bg-slate-100">
+        <img
+          src={image}
+          alt={title}
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      <div className="flex flex-1 flex-col p-5">
+        <div
+          className={`-mt-10 grid h-14 w-14 place-items-center rounded-2xl ${color} text-2xl shadow-lg ring-4 ring-white`}
+        >
+          {icon}
+        </div>
+
+        <p className="mt-5 text-xs font-black uppercase tracking-wider text-slate-500">
+          {info.age}
+        </p>
+
+        <h3 className="mt-2 text-xl font-black leading-tight text-[#1F2933]">
+          {title}
+        </h3>
+
+        <p className="mt-4 text-sm leading-7 text-slate-600">
+          {description}
+        </p>
+
+        <div className="mt-5 grid gap-3">
+          {info.bullets.map((bullet) => (
+            <div
+              key={bullet}
+              className="flex items-center gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-xs font-black text-slate-600"
+            >
+              <span className="h-2 w-2 rounded-full bg-[#009FE3]" />
+              {bullet}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Gallery() {
   const [activeImage, setActiveImage] = useState(0);
 
@@ -1116,8 +1148,8 @@ function Gallery() {
 
                 <p className="mt-4 text-base leading-7 text-slate-600 sm:leading-8">
                   Fëmijët mësojnë, krijojnë dhe argëtohen përmes eksperiencave
-                  praktike, aktiviteteve edukative, punës në grup dhe
-                  projekteve kreative.
+                  praktike, aktiviteteve edukative, punës në grup dhe projekteve
+                  kreative.
                 </p>
               </div>
 
@@ -1234,70 +1266,70 @@ function FAQ() {
   );
 }
 
-function Register({
-  onOpenRegistration,
-}: {
-  onOpenRegistration: () => void;
-}) {
-  return (
-    <section
-      id="register"
-      className="relative mx-auto max-w-7xl overflow-hidden px-4 py-14 sm:px-6 sm:py-20"
-    >
-      <BackgroundShapes variant="red" />
+  function Register({
+    onOpenRegistration,
+  }: {
+    onOpenRegistration: () => void;
+  }) {
+    return (
+      <section
+        id="register"
+        className="relative mx-auto max-w-7xl overflow-hidden px-4 py-14 sm:px-6 sm:py-20"
+      >
+        <BackgroundShapes variant="red" />
 
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-[#F6C400] text-[#1F2933]">
-        <div className="absolute right-8 top-8 text-7xl opacity-20">🚀</div>
-        <div className="absolute bottom-8 left-8 text-7xl opacity-20">💻</div>
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-[#F6C400] text-[#1F2933]">
+          <div className="absolute right-8 top-8 text-7xl opacity-20">🚀</div>
+          <div className="absolute bottom-8 left-8 text-7xl opacity-20">💻</div>
 
-        <div className="relative grid gap-8 p-5 sm:p-8 lg:grid-cols-2 lg:p-12">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.3em] text-[#EF6F6C]">
-              Registration
-            </p>
+          <div className="relative grid gap-8 p-5 sm:p-8 lg:grid-cols-2 lg:p-12">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-[#EF6F6C]">
+                Registration
+              </p>
 
-            <h2 className="mt-4 text-3xl font-black sm:text-4xl lg:text-5xl">
-              Regjistro fëmijën për Summer School 2026
-            </h2>
+              <h2 className="mt-4 text-3xl font-black sm:text-4xl lg:text-5xl">
+                Regjistro fëmijën për Summer School 2026
+              </h2>
 
-            <p className="mt-5 text-base leading-7 sm:text-lg sm:leading-8">
-              Plotëso formën e regjistrimit dhe rezervo vendin për programin
-              veror STEM ose kampin tërëditor.
-            </p>
+              <p className="mt-5 text-base leading-7 sm:text-lg sm:leading-8">
+                Plotëso formën e regjistrimit dhe rezervo vendin për programin
+                veror STEM ose kampin tërëditor.
+              </p>
 
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex rounded-full bg-[#25D366] px-7 py-3 font-black text-white shadow-lg transition hover:bg-[#1db954]"
-            >
-              Pyet në WhatsApp
-            </a>
-          </div>
-
-          <div className="rounded-[2rem] bg-white p-5 shadow-sm sm:p-6">
-            <div className="space-y-4">
-              <InfoRow label="Mosha" value="4–15 vjeç" />
-              <InfoRow label="Programi veror STEM" value="Korrik · 2 orë/ditë" />
-              <InfoRow label="Kampi tërëditor" value="6–17 Korrik" />
-              <InfoRow label="Orari i kampit" value="08:30 – 16:30" />
-              <InfoRow label="Çmimi mujor" value="59€ early bird" />
-              <InfoRow label="Kampi" value="99€/javë early bird" />
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex rounded-full bg-[#25D366] px-7 py-3 font-black text-white shadow-lg transition hover:bg-[#1db954]"
+              >
+                Pyet në WhatsApp
+              </a>
             </div>
 
-            <button
-              type="button"
-              onClick={onOpenRegistration}
-              className="mt-8 block w-full rounded-full bg-[#EF6F6C] px-8 py-4 text-center font-black text-white transition hover:bg-red-700"
-            >
-              Hap formën e regjistrimit
-            </button>
+            <div className="rounded-[2rem] bg-white p-5 shadow-sm sm:p-6">
+              <div className="space-y-4">
+                <InfoRow label="Mosha" value="4–15 vjeç" />
+                <InfoRow label="Programi veror STEM" value="Korrik · 2 orë/ditë" />
+                <InfoRow label="Kampi tërëditor" value="6–17 Korrik" />
+                <InfoRow label="Orari i kampit" value="08:30 – 16:30" />
+                <InfoRow label="Çmimi mujor" value="59€ early bird" />
+                <InfoRow label="Kampi" value="99€/javë early bird" />
+              </div>
+
+              <button
+                type="button"
+                onClick={onOpenRegistration}
+                className="mt-8 block w-full rounded-full bg-[#EF6F6C] px-8 py-4 text-center font-black text-white transition hover:bg-[#E85B58]"
+              >
+                Hap formën e regjistrimit
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
@@ -1458,8 +1490,11 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
     childName: "",
     childAge: "",
     program: "Programi veror STEM",
+    timeSlots: [] as string[],
     message: "",
   });
+
+  const timeOptions = ["10:00–12:00", "13:00–15:00", "15:00–17:00", "17:00–19:00"];
 
   function handleChange(
     event: ChangeEvent<
@@ -1471,44 +1506,73 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
     setFormData((current) => ({
       ...current,
       [name]: value,
+      ...(name === "program" && value !== "Programi veror STEM"
+        ? { timeSlots: [] }
+        : {}),
     }));
   }
 
- async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
+  function handleTimeSlotChange(time: string) {
+    setFormData((current) => {
+      const isSelected = current.timeSlots.includes(time);
 
-  const data = new URLSearchParams();
-
-  data.append("parentName", formData.parentName);
-  data.append("phone", formData.phone);
-  data.append("childName", formData.childName);
-  data.append("childAge", formData.childAge);
-  data.append("program", formData.program);
-  data.append("message", formData.message || "Nuk ka");
-
-  try {
-    await fetch(GOOGLE_SHEET_WEB_APP_URL, {
-      method: "POST",
-      mode: "no-cors",
-      body: data,
+      return {
+        ...current,
+        timeSlots: isSelected
+          ? current.timeSlots.filter((slot) => slot !== time)
+          : [...current.timeSlots, time],
+      };
     });
-
-    alert("Regjistrimi u dërgua! Kontrollo Google Sheet.");
-
-    setFormData({
-      parentName: "",
-      phone: "",
-      childName: "",
-      childAge: "",
-      program: "Programi veror STEM",
-      message: "",
-    });
-
-    onClose();
-  } catch (error) {
-    alert("Diçka shkoi gabim. Provo përsëri.");
   }
-}
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (
+      formData.program === "Programi veror STEM" &&
+      formData.timeSlots.length === 0
+    ) {
+      alert("Ju lutem zgjedhni së paku një orar për Programin veror STEM.");
+      return;
+    }
+
+    const data = new URLSearchParams();
+
+    data.append("parentName", formData.parentName);
+    data.append("phone", formData.phone);
+    data.append("childName", formData.childName);
+    data.append("childAge", formData.childAge);
+    data.append("program", formData.program);
+    data.append(
+      "timeSlots",
+      formData.timeSlots.length > 0 ? formData.timeSlots.join(", ") : "Nuk ka"
+    );
+    data.append("message", formData.message || "Nuk ka");
+
+    try {
+      await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: data,
+      });
+
+      alert("Regjistrimi u dërgua! Kontrollo Google Sheet.");
+
+      setFormData({
+        parentName: "",
+        phone: "",
+        childName: "",
+        childAge: "",
+        program: "Programi veror STEM",
+        timeSlots: [],
+        message: "",
+      });
+
+      onClose();
+    } catch (error) {
+      alert("Diçka shkoi gabim. Provo përsëri.");
+    }
+  }
 
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#1F2933]/60 px-3 py-5 backdrop-blur-sm sm:px-4 sm:py-8">
@@ -1540,7 +1604,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
 
             <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
               Plotëso të dhënat më poshtë dhe kërkesa do të dërgohet direkt në
-              WhatsApp.
+              Google Sheet.
             </p>
           </div>
 
@@ -1627,6 +1691,43 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
               </select>
             </div>
 
+            {formData.program === "Programi veror STEM" && (
+              <div>
+                <label className="mb-2 block text-sm font-black text-slate-700">
+                  Zgjedh orarin
+                </label>
+
+                <p className="mb-3 text-xs font-bold text-slate-500">
+                  Mund të zgjedhni më shumë se një orar.
+                </p>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {timeOptions.map((time) => {
+                    const isChecked = formData.timeSlots.includes(time);
+
+                    return (
+                      <label
+                        key={time}
+                        className={`flex cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 text-sm font-black transition ${
+                          isChecked
+                            ? "border-[#009FE3] bg-[#009FE3]/10 text-[#009FE3]"
+                            : "border-slate-200 bg-slate-50 text-slate-700 hover:border-[#009FE3]"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => handleTimeSlotChange(time)}
+                          className="h-4 w-4 accent-[#009FE3]"
+                        />
+                        {time}
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             <div>
               <label className="mb-2 block text-sm font-black text-slate-700">
                 Shënim shtesë
@@ -1652,7 +1753,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
 
               <button
                 type="submit"
-                className="rounded-full bg-[#EF6F6C] px-6 py-4 text-center font-black text-white transition hover:bg-red-700"
+                className="rounded-full bg-[#EF6F6C] px-6 py-4 text-center font-black text-white transition hover:bg-[#E85B58]"
               >
                 Dërgo regjistrimin
               </button>
