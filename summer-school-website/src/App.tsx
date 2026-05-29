@@ -10,6 +10,7 @@ const GOOGLE_SHEET_WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbwiXTSXiuef3ySqucI8OAnxwNcTUrS_9rbWhdJAIwvxhYBVJWXjb6xBGpOYne3Us3pkKA/exec";
 
 type Page = "home" | "programs";
+type ProgramKey = "stem" | "fullDay";
 
 type PlanProgram = {
   icon: string;
@@ -33,7 +34,7 @@ const heroAlbumImages = [
 const carouselItems = [
   { icon: "🤖", title: "Robotikë", color: "bg-[#009FE3]" },
   { icon: "⚙️", title: "Inxhinieri", color: "bg-[#78BE20]" },
-  { icon: "💻", title: "Kodim", color: "bg-[#F6C400]" },
+  { icon: "💻", title: "Coding", color: "bg-[#F6C400]" },
   { icon: "🧠", title: "AI", color: "bg-[#EF6F6C]" },
   { icon: "🧪", title: "Science", color: "bg-[#009FE3]" },
   { icon: "🖨️", title: "3D Print", color: "bg-[#78BE20]" },
@@ -43,6 +44,7 @@ const carouselItems = [
 
 const mainPrograms = [
   {
+    programKey: "stem" as ProgramKey,
     title: "Programi veror STEM",
     subtitle: "Gjatë gjithë muajit Korrik",
     color: "bg-[#009FE3]",
@@ -61,6 +63,7 @@ const mainPrograms = [
     priceNote: "Oferta Early Bird",
   },
   {
+    programKey: "fullDay" as ProgramKey,
     title: "Kampi Tërëditor",
     subtitle: "6 Korrik – 17 Korrik",
     color: "bg-[#78BE20]",
@@ -71,7 +74,7 @@ const mainPrograms = [
     details: [
       "6 Korrik – 17 Korrik",
       "08:30 – 16:30",
-      "Robotikë, AI, Kodim, Science",
+      "Aktivitete atraktive",
       "Për moshat 4–15 vjeç",
     ],
     price: "119€/javë",
@@ -80,64 +83,125 @@ const mainPrograms = [
   },
 ];
 
-const planPrograms: PlanProgram[] = [
-  {
-    icon: "💻",
-    color: "bg-[#009FE3]",
-    title: "Coding for Kids",
-    image: "/images/pic1.jpg",
-    description:
-      "Students learn coding basics through games, animations, logic challenges, and creative digital projects.",
-    fullDetails: [
-      "Fëmijët mësojnë bazat e kodimit përmes aktiviteteve praktike dhe lojërave logjike.",
-      "Ata kuptojnë se programimi është dhënie e udhëzimeve hap pas hapi për kompjuterin.",
-      "Përmes animimeve dhe projekteve kreative, fëmijët zhvillojnë mendimin algoritmik.",
-      "Ky modul është i përshtatshëm për fillestarë dhe e bën kodimin të lehtë e argëtues.",
-    ],
-  },
-  {
-    icon: "🧩",
-    color: "bg-[#78BE20]",
-    title: "STEM & Engineering",
-    image: "/images/fotoja.png",
-    description:
-      "Hands-on activities where students build, test, solve problems, and understand how technology works.",
-    fullDetails: [
-      "Fëmijët njihen me konceptet bazë të STEM përmes ndërtimit dhe testimit praktik.",
-      "Ata mësojnë si funksionojnë mekanizmat, strukturat dhe zgjidhjet inxhinierike.",
-      "Përmes sfidave ekipore, fëmijët mësojnë të provojnë, të gabojnë dhe të përmirësojnë.",
-      "Ky modul zhvillon mendimin logjik, kreativitetin dhe bashkëpunimin.",
-    ],
-  },
-  {
-    icon: "🤖",
-    color: "bg-[#F6C400]",
-    title: "AI & Smart Tech",
-    image: "/images/pic11.jpg",
-    description:
-      "A beginner-friendly introduction to artificial intelligence, prompts, smart tools, and digital safety.",
-    fullDetails: [
-      "Fëmijët njihen me konceptet bazë të inteligjencës artificiale në mënyrë të thjeshtë.",
-      "Ata mësojnë çka janë prompt-et dhe si përdoren smart tools në mënyrë kreative.",
-      "Diskutohet siguria digjitale dhe mënyra e përdorimit të përgjegjshëm të teknologjisë.",
-      "Qëllimi është që fëmijët ta kuptojnë AI si mjet ndihmës dhe kreativ.",
-    ],
-  },
-  {
-    icon: "🎮",
-    color: "bg-[#EF6F6C]",
-    title: "Game Design",
-    image: "/images/pic10.jpg",
-    description:
-      "Students design simple games while learning creativity, teamwork, problem solving, and presentation skills.",
-    fullDetails: [
-      "Fëmijët mësojnë si ndërtohet një ide e thjeshtë për lojë dhe si kthehet në projekt.",
-      "Ata zhvillojnë mini-games, punojnë me storytelling dhe mendojnë për rregullat e lojës.",
-      "Përmes prezantimit të projekteve, ata ndërtojnë vetëbesim dhe aftësi komunikimi.",
-      "Ky modul kombinon kreativitetin, logjikën dhe punën në grup.",
-    ],
-  },
-];
+const planProgramsByMainProgram: Record<ProgramKey, PlanProgram[]> = {
+  stem: [
+    {
+      icon: "⚙️",
+      color: "bg-[#009FE3]",
+      title: "Inxhinieri",
+      image: "/images/fotoja.png",
+      description:
+        "Fëmijët mësojnë bazat e inxhinierisë përmes ndërtimit, testimit dhe zgjidhjes së problemeve praktike.",
+      fullDetails: [
+        "Fëmijët njihen me konceptet bazë të inxhinierisë në mënyrë të thjeshtë dhe praktike.",
+        "Ata ndërtojnë struktura, mekanizma dhe modele të vogla për të kuptuar si funksionojnë gjërat.",
+        "Përmes sfidave praktike, fëmijët mësojnë të provojnë, të gabojnë dhe të përmirësojnë zgjidhjet e tyre.",
+        "Ky modul zhvillon kreativitetin, mendimin logjik, durimin dhe punën në grup.",
+      ],
+    },
+    {
+      icon: "🧠",
+      color: "bg-[#78BE20]",
+      title: "AI & Coding",
+      image: "/images/pic11.jpg",
+      description:
+        "Një hyrje argëtuese në kodim dhe inteligjencë artificiale, e përshtatur për fëmijë.",
+      fullDetails: [
+        "Fëmijët mësojnë bazat e kodimit përmes lojërave, aktiviteteve logjike dhe projekteve kreative.",
+        "Ata kuptojnë si funksionojnë udhëzimet hap pas hapi dhe si kompjuteri ndjek komandat.",
+        "Në pjesën e AI, fëmijët mësojnë çka është inteligjenca artificiale dhe si përdoren mjetet smart në mënyrë të sigurt.",
+        "Ky modul i ndihmon fëmijët të zhvillojnë mendimin algoritmik dhe kreativitetin digjital.",
+      ],
+    },
+    {
+        icon: "🎮",
+        color: "bg-[#EF6F6C]",
+        title: "Game Design",
+        image: "/images/pic10.jpg",
+        description:
+          "Fëmijët mësojnë të krijojnë lojëra të thjeshta duke kombinuar kreativitetin, logjikën dhe kodimin.",
+        fullDetails: [
+          "Fëmijët mësojnë si ndërtohet një ide për lojë dhe si kthehet në projekt praktik.",
+          "Ata punojnë me karaktere, rregulla të lojës, nivele dhe sfida të thjeshta.",
+          "Përmes Game Design, fëmijët zhvillojnë kreativitet, logjikë dhe aftësi për zgjidhje problemesh.",
+          "Ky modul i ndihmon fëmijët të prezantojnë idetë e tyre dhe të ndërtojnë vetëbesim.",
+        ],
+      },
+    {
+      icon: "🎨",
+      color: "bg-[#F6C400]",
+      title: "Aktivitete kreative",
+      image: "/images/pic10.jpg",
+      description:
+        "Aktivitete edukative dhe kreative që e bëjnë mësimin më argëtues dhe më praktik.",
+      fullDetails: [
+        "Fëmijët marrin pjesë në aktivitete kreative ku përdorin imagjinatën dhe idetë e tyre.",
+        "Aktivitetet përfshijnë punë në grup, sfida logjike, prezantime të vogla dhe projekte praktike.",
+        "Qëllimi është që fëmijët të mësojnë duke krijuar, jo vetëm duke dëgjuar.",
+        "Ky modul ndihmon në zhvillimin e vetëbesimit, komunikimit dhe bashkëpunimit.",
+      ],
+    },
+  ],
+
+  fullDay: [
+    {
+      icon: "💻",
+      color: "bg-[#009FE3]",
+      title: "AI & Coding",
+      image: "/images/pic1.jpg",
+      description:
+        "Fëmijët mësojnë bazat e kodimit përmes lojërave, animimeve dhe mini-projekteve.",
+      fullDetails: [
+        "Fëmijët mësojnë si t’i japin kompjuterit udhëzime hap pas hapi.",
+        "Aktivitetet përfshijnë lojëra logjike, animime dhe projekte të thjeshta kreative.",
+        "Kodimi i ndihmon fëmijët të zhvillojnë mendimin algoritmik dhe zgjidhjen e problemeve.",
+        "Ky modul është i përshtatshëm për fillestarë dhe zhvillohet në mënyrë argëtuese.",
+      ],
+    },
+    {
+      icon: "🎯",
+      color: "bg-[#78BE20]",
+      title: "Activities",
+      image: "/images/pic7.jpg",
+      description:
+        "Aktivitete të ndryshme gjatë ditës që kombinojnë leximin, lojën, notin dhe argëtimin në grup.",
+      fullDetails: [
+        "Reading Time – fëmijët kanë kohë të qetë për lexim, reflektim dhe zhvillim të imagjinatës.",
+        "Swimming – aktivitet fizik dhe argëtues që i ndihmon fëmijët të relaksohen dhe të jenë aktivë.",
+        "Creative Games – lojëra ekipore dhe aktivitete kreative që zhvillojnë bashkëpunimin.",
+        "Outdoor & Fun Activities – aktivitete të lehta rekreative që e bëjnë ditën më dinamike dhe më të këndshme.",
+      ],
+    },    
+    {
+      icon: "🧪",
+      color: "bg-[#EF6F6C]",
+      title: "Science",
+      image: "/images/pic12.jpg",
+      description:
+        "Eksperimente dhe aktivitete shkencore që e bëjnë mësimin më të prekshëm dhe argëtues.",
+      fullDetails: [
+        "Fëmijët mësojnë koncepte shkencore përmes eksperimenteve të thjeshta dhe të sigurta.",
+        "Ata vëzhgojnë, pyesin, testojnë dhe nxjerrin përfundime nga aktivitetet praktike.",
+        "Science i ndihmon fëmijët të zhvillojnë kuriozitetin dhe mendimin kritik.",
+        "Ky modul e lidh teorinë me eksperienca konkrete që fëmijët i mbajnë mend më lehtë.",
+      ],
+    },
+    {
+      icon: "🤖",
+      color: "bg-[#009FE3]",
+      title: "Robotics",
+      image: "/images/pic11.jpg",
+      description:
+        "Fëmijët njihen me robotikën përmes aktiviteteve praktike, sensorëve dhe komandave të thjeshta.",
+      fullDetails: [
+        "Fëmijët mësojnë si robotët ndjekin udhëzime dhe reagojnë ndaj komandave.",
+        "Ata njihen me pjesë bazike si motorët, sensorët dhe lëvizjet e robotit.",
+        "Përmes aktiviteteve praktike, fëmijët ndërtojnë lidhje mes kodimit dhe botës reale.",
+        "Ky modul zhvillon logjikën, kreativitetin dhe interesimin për teknologji.",
+      ],
+    },
+  ],
+};
 
 const benefits = [
   "Për moshat 4–15 vjeç",
@@ -201,8 +265,10 @@ const faqs = [
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [activeProgramKey, setActiveProgramKey] = useState<ProgramKey>("stem");
 
-  function openProgramsPage() {
+  function openProgramsPage(programKey: ProgramKey) {
+    setActiveProgramKey(programKey);
     setCurrentPage("programs");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -226,6 +292,7 @@ function App() {
         <Navbar onGoHome={goHome} onOpenRegistration={openRegistrationForm} />
 
         <PlanProgramsPage
+          programKey={activeProgramKey}
           onBack={goHome}
           onOpenRegistration={openRegistrationForm}
         />
@@ -684,7 +751,7 @@ function Programs({
   onOpenProgramsPage,
   onOpenRegistration,
 }: {
-  onOpenProgramsPage: () => void;
+  onOpenProgramsPage: (programKey: ProgramKey) => void;
   onOpenRegistration: () => void;
 }) {
   return (
@@ -721,6 +788,7 @@ function Programs({
 }
 
 function ProgramCard({
+  programKey,
   title,
   subtitle,
   color,
@@ -734,6 +802,7 @@ function ProgramCard({
   onOpenProgramsPage,
   onOpenRegistration,
 }: {
+  programKey: ProgramKey;
   title: string;
   subtitle: string;
   color: string;
@@ -744,7 +813,7 @@ function ProgramCard({
   price: string;
   discountPrice: string;
   priceNote: string;
-  onOpenProgramsPage: () => void;
+  onOpenProgramsPage: (programKey: ProgramKey) => void;
   onOpenRegistration: () => void;
 }) {
   return (
@@ -820,10 +889,10 @@ function ProgramCard({
 
           <button
             type="button"
-            onClick={onOpenProgramsPage}
+            onClick={() => onOpenProgramsPage(programKey)}
             className="block rounded-full border-2 border-[#009FE3] bg-white px-5 py-3 text-center text-sm font-black text-[#009FE3] transition hover:bg-[#009FE3] hover:text-white"
           >
-            Detaje rreth programeve
+            Detaje rreth programit
           </button>
         </div>
       </div>
@@ -832,15 +901,27 @@ function ProgramCard({
 }
 
 function PlanProgramsPage({
+  programKey,
   onBack,
   onOpenRegistration,
 }: {
+  programKey: ProgramKey;
   onBack: () => void;
   onOpenRegistration: () => void;
 }) {
   const [selectedProgram, setSelectedProgram] = useState<PlanProgram | null>(
     null
   );
+
+  const visiblePrograms = planProgramsByMainProgram[programKey];
+
+  const pageTitle =
+    programKey === "stem" ? "Programi veror STEM" : "Kampi Tërëditor";
+
+  const pageDescription =
+    programKey === "stem"
+      ? "Ky program fokusohet në inxhinieri, AI & Coding dhe aktivitete kreative për fëmijë."
+      : "Kampi tërëditor përfshin kodim, reading time, swimming, science, robotics dhe logical thinking.";
 
   function handleProgramRegistration() {
     setSelectedProgram(null);
@@ -866,17 +947,16 @@ function PlanProgramsPage({
           </p>
 
           <h1 className="mt-4 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-            Summer School Programs
+            {pageTitle}
           </h1>
 
           <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
-            Each program is beginner-friendly, practical, and designed to make
-            learning exciting.
+            {pageDescription}
           </p>
         </div>
 
         <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
-          {planPrograms.map((program) => (
+          {visiblePrograms.map((program) => (
             <PlanProgramCard
               key={program.title}
               {...program}
@@ -980,23 +1060,40 @@ function PlanProgramCard({
   title,
   image,
   description,
+  onLearnMore,
 }: PlanProgram & { onLearnMore: () => void }) {
   const programInfo: Record<string, { age: string; bullets: string[] }> = {
-    "Coding for Kids": {
-      age: "AGES 7–12",
-      bullets: ["Logic games", "Animations", "Creative projects"],
-    },
-    "STEM & Engineering": {
-      age: "AGES 6–12",
+    Inxhinieri: {
+      age: "AGES 6–15",
       bullets: ["Build & test", "Problem solving", "Team challenges"],
     },
-    "AI & Smart Tech": {
-      age: "AGES 9–14",
-      bullets: ["AI basics", "Prompting", "Digital safety"],
+    "AI & Coding": {
+      age: "AGES 7–15",
+      bullets: ["Coding basics", "AI tools", "Creative projects"],
     },
-    "Game Design": {
-      age: "AGES 8–14",
-      bullets: ["Mini games", "Story design", "Presentations"],
+    "Aktivitete kreative": {
+      age: "AGES 4–15",
+      bullets: ["Creativity", "Team work", "Fun challenges"],
+    },
+   Activities: {
+  age: "AGES 4–15",
+  bullets: ["Reading time", "Swimming", "Fun games"],
+},
+   "Game Design": {
+  age: "AGES 7–15",
+  bullets: ["Mini games", "Story design", "Creative logic"],
+},
+    Science: {
+      age: "AGES 4–15",
+      bullets: ["Experiments", "Observation", "Curiosity"],
+    },
+    Robotics: {
+      age: "AGES 7–15",
+      bullets: ["Robots", "Sensors", "Commands"],
+    },
+    "Logical Thinking": {
+      age: "AGES 4–15",
+      bullets: ["Puzzles", "Problem solving", "Focus"],
     },
   };
 
@@ -1047,6 +1144,14 @@ function PlanProgramCard({
             </div>
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={onLearnMore}
+          className="mt-6 rounded-full bg-[#009FE3] px-5 py-3 text-sm font-black text-white transition hover:bg-[#0087c2]"
+        >
+          Më shumë detaje
+        </button>
       </div>
     </div>
   );
