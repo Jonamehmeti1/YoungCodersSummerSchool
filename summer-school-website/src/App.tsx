@@ -408,20 +408,21 @@ function Navbar({
     { label: "FAQ", href: "#faq" },
   ];
 
-  function handleLogoClick() {
+  function handleLogoClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
     setIsMenuOpen(false);
     onGoHome?.();
   }
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
+      <nav className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-10">
         <a
           href="#"
           onClick={handleLogoClick}
-          className="flex flex-1 items-center gap-6"
+          className="flex min-w-0 flex-1 items-center gap-3 sm:gap-5"
         >
-          <div className="h-16 w-16 shrink-0 sm:h-24 sm:w-24 lg:h-28 lg:w-28 xl:h-32 xl:w-32">
+          <div className="h-14 w-14 shrink-0 sm:h-20 sm:w-20 lg:h-28 lg:w-28 xl:h-32 xl:w-32">
             <img
               src="/images/logo.jpg"
               alt="Young Engineers Prishtina"
@@ -429,12 +430,12 @@ function Navbar({
             />
           </div>
 
-          <div className="min-w-0">
-            <p className="whitespace-nowrap text-xl font-black leading-tight text-[#1F2933] sm:text-2xl lg:text-3xl xl:text-3xl">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-base font-black leading-tight text-[#1F2933] sm:text-2xl lg:text-3xl xl:text-3xl">
               Young Engineers Prishtina
             </p>
 
-            <p className="mt-2 whitespace-nowrap text-lg font-black uppercase leading-tight tracking-wide text-[#009FE3] sm:text-xl lg:text-2xl xl:text-2xl">
+            <p className="mt-1 truncate text-sm font-black uppercase leading-tight tracking-wide text-[#009FE3] sm:mt-2 sm:text-xl lg:text-2xl xl:text-2xl">
               Summer School 2026
             </p>
           </div>
@@ -443,8 +444,8 @@ function Navbar({
         <button
           type="button"
           onClick={() => setIsMenuOpen((current) => !current)}
-          className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-2xl font-black text-[#1F2933] shadow-sm md:hidden"
-          aria-label="Open menu"
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-2xl font-black text-[#1F2933] shadow-sm md:hidden"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMenuOpen ? "×" : "☰"}
         </button>
@@ -480,14 +481,14 @@ function Navbar({
       </nav>
 
       {isMenuOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 md:hidden">
-          <div className="grid gap-3">
+        <div className="absolute left-0 right-0 top-full z-50 border-t border-slate-200 bg-white px-4 py-4 shadow-xl md:hidden">
+          <div className="mx-auto grid max-w-md gap-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="rounded-2xl bg-slate-50 px-4 py-3 text-sm font-black text-slate-700"
+                className="rounded-2xl bg-slate-50 px-4 py-3 text-center text-sm font-black text-slate-700 transition hover:bg-slate-100 hover:text-[#009FE3]"
               >
                 {link.label}
               </a>
@@ -497,7 +498,8 @@ function Navbar({
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noreferrer"
-              className="rounded-2xl bg-[#25D366] px-4 py-3 text-center text-sm font-black text-white"
+              onClick={() => setIsMenuOpen(false)}
+              className="rounded-2xl bg-[#25D366] px-4 py-3 text-center text-sm font-black text-white transition hover:bg-[#1db954]"
             >
               WhatsApp
             </a>
@@ -508,7 +510,7 @@ function Navbar({
                 setIsMenuOpen(false);
                 onOpenRegistration();
               }}
-              className="rounded-2xl bg-[#009FE3] px-4 py-3 text-center text-sm font-black text-white"
+              className="rounded-2xl bg-[#009FE3] px-4 py-3 text-center text-sm font-black text-white transition hover:bg-[#0087c2]"
             >
               Regjistrohu tani
             </button>
