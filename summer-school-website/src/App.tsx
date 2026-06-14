@@ -1608,10 +1608,18 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
     childAge: "",
     program: "Programi veror STEM",
     timeSlots: [] as string[],
+    fullDayWeeks: [] as string[],
     message: "",
   });
 
   const timeOptions = ["10:00–12:00", "13:00–15:00", "15:00–17:00", "17:00–19:00"];
+
+  const fullDayWeekOptions = [
+    "Java 1: 6–10 Korrik",
+    "Java 2: 13–17 Korrik",
+    "Java 3: 20–24 Korrik",
+    "Java 4: 27–31 Korrik",
+  ];
 
   function handleChange(
     event: ChangeEvent<
@@ -1620,12 +1628,20 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
   ) {
     const { name, value } = event.target;
 
+    if (name === "program") {
+      setFormData((current) => ({
+        ...current,
+        program: value,
+        timeSlots: value === "Programi veror STEM" ? current.timeSlots : [],
+        fullDayWeeks: value === "Kampi Tërëditor" ? current.fullDayWeeks : [],
+      }));
+
+      return;
+    }
+
     setFormData((current) => ({
       ...current,
       [name]: value,
-      ...(name === "program" && value !== "Programi veror STEM"
-        ? { timeSlots: [] }
-        : {}),
     }));
   }
 
@@ -1642,6 +1658,19 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
     });
   }
 
+  function handleFullDayWeekChange(week: string) {
+    setFormData((current) => {
+      const isSelected = current.fullDayWeeks.includes(week);
+
+      return {
+        ...current,
+        fullDayWeeks: isSelected
+          ? current.fullDayWeeks.filter((selectedWeek) => selectedWeek !== week)
+          : [...current.fullDayWeeks, week],
+      };
+    });
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -1650,6 +1679,14 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
       formData.timeSlots.length === 0
     ) {
       alert("Ju lutem zgjedhni së paku një orar për Programin veror STEM.");
+      return;
+    }
+
+    if (
+      formData.program === "Kampi Tërëditor" &&
+      formData.fullDayWeeks.length === 0
+    ) {
+      alert("Ju lutem zgjedhni së paku një javë për Kampin Tërëditor.");
       return;
     }
 
@@ -1663,6 +1700,12 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
     data.append(
       "timeSlots",
       formData.timeSlots.length > 0 ? formData.timeSlots.join(", ") : "Nuk ka"
+    );
+    data.append(
+      "fullDayWeeks",
+      formData.fullDayWeeks.length > 0
+        ? formData.fullDayWeeks.join(", ")
+        : "Nuk ka"
     );
     data.append("message", formData.message || "Nuk ka");
 
@@ -1682,6 +1725,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
         childAge: "",
         program: "Programi veror STEM",
         timeSlots: [],
+        fullDayWeeks: [],
         message: "",
       });
 
@@ -1838,6 +1882,43 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
                           className="h-4 w-4 accent-[#009FE3]"
                         />
                         {time}
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {formData.program === "Kampi Tërëditor" && (
+              <div>
+                <label className="mb-2 block text-sm font-black text-slate-700">
+                  Zgjedh javën / javët
+                </label>
+
+                <p className="mb-3 text-xs font-bold text-slate-500">
+                  Mund të zgjedhni më shumë se një javë.
+                </p>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {fullDayWeekOptions.map((week) => {
+                    const isChecked = formData.fullDayWeeks.includes(week);
+
+                    return (
+                      <label
+                        key={week}
+                        className={`flex cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 text-sm font-black transition ${
+                          isChecked
+                            ? "border-[#78BE20] bg-[#78BE20]/10 text-[#1F2933]"
+                            : "border-slate-200 bg-slate-50 text-slate-700 hover:border-[#78BE20]"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => handleFullDayWeekChange(week)}
+                          className="h-4 w-4 accent-[#78BE20]"
+                        />
+                        {week}
                       </label>
                     );
                   })}
