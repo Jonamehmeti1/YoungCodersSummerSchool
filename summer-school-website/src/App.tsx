@@ -79,6 +79,7 @@ const mainPrograms = [
     ],
     price: "119€/javë",
     discountPrice: "99€/javë",
+    secondDiscountPrice: "189€/2 javë",
     priceNote: "Oferta Early Bird",
   },
 ];
@@ -800,6 +801,7 @@ function ProgramCard({
   details,
   price,
   discountPrice,
+  secondDiscountPrice,
   priceNote,
   onOpenProgramsPage,
   onOpenRegistration,
@@ -814,6 +816,7 @@ function ProgramCard({
   details: string[];
   price: string;
   discountPrice: string;
+  secondDiscountPrice?: string;
   priceNote: string;
   onOpenProgramsPage: (programKey: ProgramKey) => void;
   onOpenRegistration: () => void;
@@ -867,14 +870,20 @@ function ProgramCard({
             Çmimi
           </p>
 
-          <div className="mt-2 flex flex-wrap items-end gap-3">
-            <p className="text-2xl font-black text-[#EF6F6C] sm:text-3xl">
-              {discountPrice}
-            </p>
-
+          <div className="mt-2 flex flex-col gap-1 leading-tight">
             <p className="pb-1 text-sm font-bold text-slate-400 line-through sm:text-base">
               {price}
             </p>
+
+            <span className="text-2xl font-black text-[#EF6F6C] sm:text-3xl">
+              {discountPrice}
+            </span>
+
+            {secondDiscountPrice && (
+              <span className="text-2xl font-black text-[#EF6F6C] sm:text-3xl">
+                {secondDiscountPrice}
+              </span>
+            )}
           </div>
 
           <p className="mt-2 text-sm font-bold text-slate-600">{priceNote}</p>
@@ -1421,8 +1430,9 @@ function FAQ() {
                 <InfoRow label="Kampi tërëditor" value="6–17 Korrik" />
                 <InfoRow label="Orari i kampit" value="08:30 – 16:30" />
                 <InfoRow label="Çmimi mujor" value="59€ early bird" />
-                <InfoRow label="Kampi" value="99€/javë early bird" />
-              </div>
+                <InfoRow label="Kampi" value="99€/javë" />
+                <InfoRow label="" value="189€/2 javë early bird" />             
+                 </div>
 
               <button
                 type="button"
@@ -1663,7 +1673,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
         body: data,
       });
 
-      alert("Regjistrimi u dërgua! Kontrollo Google Sheet.");
+      alert("Regjistrimi u dërgua!");
 
       setFormData({
         parentName: "",
